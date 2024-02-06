@@ -1,0 +1,37 @@
+.MainHeader {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  /* grid-template-rows: 100%; */
+  grid-template-areas: "logo input profile";
+  align-content: center;
+  column-gap: 40px;
+}
+
+.LogoContainer {
+  grid-area: logo;
+}
+
+.InputContainer {
+  grid-area: input;
+}
+
+.ProfileContainer {
+  grid-area: profile;
+}
+
+.Profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "image name" "image position";
+  column-gap: 12px;
+}
+.ProfileImage {
+  grid-area: image;
+}
+.ProfileName {
+  grid-area: name;
+}
+.ProfilePosition {
+  grid-area: position;
+}

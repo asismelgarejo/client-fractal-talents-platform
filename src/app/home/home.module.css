@@ -1,0 +1,11 @@
+.Container {
+  display: grid;
+  grid-template-columns: minmax(200px, 400px) 1fr;
+  grid-template-areas: "results talents";
+}
+.ResultsContainer{
+  grid-area: results;
+}
+.TalentDetailContainer{
+  grid-area: talents;
+}
