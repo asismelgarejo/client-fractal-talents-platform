@@ -10,16 +10,15 @@ import Filters from "./Filters";
 const page = () => {
   return (
     <div
-      className={clsx(
-        "max-w-[1300px] w-full m-auto py-5 px-4 bg-red-300 grow flex"
-      )}
+      className={clsx("max-w-[1300px] w-full m-auto py-5 px-4  grow flex")}
       style={{
         height: "calc(100vh - 131px)",
       }}
     >
-      <div className={clsx(styles.Container, "bg-lime-700")}>
+      <div className={clsx(styles.Container, "")}>
         <div style={{ gridArea: "button" }}>
           <CustomButton
+            type="button"
             btnVariant="outline"
             className="shrink"
             startIcon={<AddIcon />}
@@ -27,7 +26,7 @@ const page = () => {
             Nuevo Talento
           </CustomButton>
         </div>
-        <div className={clsx(styles.ResultsContainer, "bg-lime-400 space-y-3")}>
+        <div className={clsx(styles.ResultsContainer, "space-y-3")}>
           {Array.from({ length: 10 }).map((_, idx) => (
             <TalentCard key={idx} active={idx !== 0} />
           ))}

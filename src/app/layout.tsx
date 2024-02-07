@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={clsx(inter.className, "bg-orange-400 min-h-[100vh]")}>
+      <body className={clsx(inter.className, "min-h-[100vh]")}>
         <MainHeader />
         {children}
       </body>

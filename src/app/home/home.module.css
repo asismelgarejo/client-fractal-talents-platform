@@ -1,4 +1,5 @@
 .Container {
+  width: 100%;
   display: grid;
   grid-template-columns: minmax(200px, 400px) 1fr;
   grid-template-areas: "button filters" "results talents";
@@ -11,5 +12,4 @@
   grid-area: results;
   height: 100%;
   overflow-y: scroll;
-  background-color: red;
 }

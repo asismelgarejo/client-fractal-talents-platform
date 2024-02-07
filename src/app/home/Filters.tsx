@@ -10,8 +10,8 @@ const CHIPS = [
 ];
 const Filters = () => {
   return (
-    <div className="flex bg-orange-200 mr-auto" style={{ gridArea: "filters" }}>
-      <div className="bg-orange-300  flex space-x-4">
+    <div className="flex mr-auto w-full" style={{ gridArea: "filters" }}>
+      <div className="flex space-x-4">
         {CHIPS.map((item) => (
           <span
             key={item.ID}
@@ -21,13 +21,15 @@ const Filters = () => {
           </span>
         ))}
       </div>
-      <div className="ml-auto flex space-x-5 bg-gray-600">
+      <div className="ml-auto flex space-x-5">
         <CustomInput
           startIcon={<EyesIcon />}
-          className="my-auto"
+          className="text-black"
           placeholder="Buscar talento o puesto"
         />
-        <CustomButton btnVariant="contained">Buscar</CustomButton>
+        <CustomButton type="button" btnVariant="contained">
+          Buscar
+        </CustomButton>
       </div>
     </div>
   );
