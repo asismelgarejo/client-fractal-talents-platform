@@ -1,11 +1,15 @@
 .Container {
   display: grid;
   grid-template-columns: minmax(200px, 400px) 1fr;
-  grid-template-areas: "results talents";
+  grid-template-areas: "button filters" "results talents";
+  grid-template-rows: auto 1fr;
+  column-gap: 20px;
+  row-gap: 15px;
+  max-height: 100%;
 }
 .ResultsContainer{
   grid-area: results;
-}
-.TalentDetailContainer{
-  grid-area: talents;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: red;
 }

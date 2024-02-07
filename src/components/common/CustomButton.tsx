@@ -13,7 +13,7 @@ type CustomButtonProps = React.DetailedHTMLProps<
 };
 
 const CustomButton: React.FC<CustomButtonProps> = (props) => {
-  const { startIcon, btnVariant = "contained", ...btnProps } = props;
+  const { startIcon, children, btnVariant = "contained", ...btnProps } = props;
 
   return (
     <button
@@ -27,7 +27,7 @@ const CustomButton: React.FC<CustomButtonProps> = (props) => {
       )}
     >
       <span>{startIcon}</span>
-      <span>{btnProps?.children}</span>
+      <span>{children}</span>
     </button>
   );
 };

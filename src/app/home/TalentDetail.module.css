@@ -1,0 +1,4 @@
+.TalentDetailContainer{
+  grid-area: talents;
+  position: sticky;
+}

@@ -1,0 +1,9 @@
+.InnerContainer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 15px;
+  grid-template-areas: "image content";
+}
+.Active{
+  background-color: white;
+}
