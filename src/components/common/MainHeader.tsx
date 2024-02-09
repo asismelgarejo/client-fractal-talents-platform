@@ -14,7 +14,7 @@ const MainHeader: React.FC<MainHeaderProps> = ({}) => {
     <header className="w-full bg-white text-black border-b border-gray-300">
       <div
         className={clsx(
-          "max-w-[1300px] min-h-[90px] m-auto px-4",
+          "max-w-screen-2xl min-h-[90px] m-auto px-10",
           styles.MainHeader
         )}
       >
@@ -28,7 +28,7 @@ const MainHeader: React.FC<MainHeaderProps> = ({}) => {
             alt="fractal logo"
           />
         </Link>
-        <div className={clsx(styles.InputContainer, "flex")}>
+        <div className={clsx(styles.InputContainer, "flex w-fit")}>
           <CustomInput
             startIcon={<EyesIcon />}
             className="my-auto"

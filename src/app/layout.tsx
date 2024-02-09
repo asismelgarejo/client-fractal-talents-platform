@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={clsx(inter.className, "min-h-[100vh]")}>
+      <body className={clsx(inter.className, "h-screen")}>
         <MainHeader />
         {children}
       </body>

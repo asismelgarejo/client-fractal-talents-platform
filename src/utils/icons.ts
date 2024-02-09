@@ -6,6 +6,7 @@ import { default as StartIcon } from "@/assets/kid_star.svg";
 import { default as StartOulinedIcon } from "@/assets/kid_star_oulined.svg";
 import { default as LocationIcon } from "@/assets/location_on.svg";
 import { default as MoneyIcon } from "@/assets/attach_money.svg";
+import { default as EditIcon } from "@/assets/edit-icon.svg";
 
 export {
   EyesIcon,
@@ -16,4 +17,5 @@ export {
   StartOulinedIcon,
   LocationIcon,
   MoneyIcon,
+  EditIcon
 };

@@ -23,10 +23,10 @@ const CustomButton: React.FC<CustomButtonProps> = (props) => {
           [btnProps?.className ?? ""]: !!btnProps?.className,
           [variants[btnVariant]]: true,
         },
-        "rounded-lg flex space-x-2 inline-block items-center px-5 py-2 font-semibold"
+        "rounded-lg flex space-x-2 inline-block items-center px-5 py-2 font-semibold text-sm"
       )}
     >
-      <span>{startIcon}</span>
+      {startIcon && <span>{startIcon}</span>}
       <span>{children}</span>
     </button>
   );

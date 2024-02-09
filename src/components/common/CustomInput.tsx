@@ -13,7 +13,7 @@ const CustomInput: React.FC<CustomInputProps> = (props) => {
   return (
     <div
       className={clsx(
-        "rounded-3xl overflow-hidden w-fit flex bg-white items-center drop-shadow-md px-2 border border-gray-300",
+        "rounded-3xl overflow-hidden w-full flex bg-white items-center drop-shadow-md px-2 border border-gray-300",
         {
           [inputProps?.className ?? ""]: !!inputProps?.className,
         }
