@@ -2,13 +2,17 @@ import type { Config } from "tailwindcss";
 
 const colors = {
   // ...defaultColors,
-  main: "#0B85C3",
-  secondary: "#009688",
+  primary: { "500": "#0B85C3", "200": "#F0F9FF" },
+  tertiary: "#009688",
+  secondary: { "500": "#C11574", "200": "#FDF2FA" },
   white: "#fff",
   black: "#000",
   gray: {
     "100": "#F9FAFB",
-    "200": "#98A2B3",
+    "200": "#F2F4F7",
+    "300": "#D0D5DD",
+    "400": "#98A2B3",
+    "500": "#667085",
   },
 };
 const fontSize = {
@@ -27,13 +31,8 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       colors,
-      fontSize
+      fontSize,
     },
   },
   plugins: [],

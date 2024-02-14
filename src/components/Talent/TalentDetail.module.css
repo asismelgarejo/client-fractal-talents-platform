@@ -2,9 +2,3 @@
   grid-area: talents;
 }
 
-.TalentDetailHeader {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-content: center;
-  align-items: center;
-}

@@ -1,0 +1,13 @@
+.TalentDetailSkills {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+
+
+.TalentDetailHeader {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-content: center;
+  align-items: center;
+}

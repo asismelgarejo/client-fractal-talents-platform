@@ -3,112 +3,54 @@ import React from "react";
 import styles from "./TalentDetail.module.css";
 import clsx from "clsx";
 import Image from "next/image";
-import {
-  EditIcon,
-  GithubIcon,
-  LinkedInIcon,
-  LocationIcon,
-  MoneyIcon,
-  PhoneIcon,
-} from "@/utils/icons";
-import CustomRating from "../common/CustomRating";
-import CustomSelect from "../common/CustomSelect";
-import CustomButton from "../common/CustomButton";
+import { UploadIcon } from "@/utils/icons";
+import CardOne from "../common/Cards/CardOne";
+import TalentDetailSkills from "./TalentDetail/TalentDetailSkills";
+import TalentDetailDescription from "./TalentDetail/TalentDetailDescription";
+import TalentDetailHeader from "./TalentDetail/TalentDetailHeader";
 
-const TalentDetailHeader = () => {
+const TalentDetailCertificates = () => {
   return (
-    <div
-      className={clsx(
-        styles.TalentDetailHeader,
-        "bg-green-300 space-x-2 text-black"
-      )}
-    >
-      <div className="">
-        <div className="relative bg-red-200">
-          <Image
-            src={"/assets/mock-talent.svg"}
-            alt="talent photo"
-            width={96}
-            height={96}
-          />
-          <div className="absolute right-0 bottom-0">
-            <button
-              className="p-2.5 rounded-full bg-white shadow-md"
-              type="button"
-            >
-              <EditIcon className="fill-gray-500 text-xl" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="p-4 space-y-1">
-        <h3 className="font-bold text-lg">Juan Lopez Martinez</h3>
-        <div className="flex space-x-2 text-sm items-center text-gray-500">
-          <span className="flex space-x-1">Full-stack developer</span>
-          <span className="flex space-x-1 items-center">
-            <LocationIcon />
-            <span>Lima, Peru</span>
-          </span>
-          <span className="flex space-x-1 items-center">
-            <MoneyIcon />
-            <span>2500-3000</span>
-          </span>
-          <button className="p-1 rounded-full bg-red-200" type="button">
-            <EditIcon className="fill-gray-500 text-xl" />
-          </button>
-        </div>
-        <div className="flex space-x-2 text-gray-500 items-center">
-          <CustomRating />
-          <span className="flex space-x-1 items-center text-sm">
-            2 feedbacks
-          </span>
-        </div>
-      </div>
-      <div className="bg-red-200 h-full flex flex-col">
-        <div className="bg-red-500 flex space-x-6 h-fit">
-          <CustomSelect label="Ver CV" variant="noborder" />
-          <CustomButton
-            variant="contained"
-            startIcon={<PhoneIcon className="text-xl" />}
-          >
-            Contactar
-          </CustomButton>
-        </div>
-        <div className="space-x-2 bg-green-200 mt-auto h-fit flex justify-end">
-          <button type="button" className="bg-green-400 h-fit">
-            <GithubIcon className="text-[24px] fill-gray-200" />
-          </button>
-          <button type="button" className="bg-green-400">
-            <LinkedInIcon className="text-[24px] fill-gray-200" />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const TalentDetailCertificateCard = () => {
-  return (
-    <section>
-      <TalentDetailCertificates />
-      <TalentDetailCertificates />
+    <section className="space-x-4 flex">
+      <TalentDetailCertificateCard />
+      <TalentDetailCertificateCard />
+      <TalentDetailCertificateCardUpload />
     </section>
   );
 };
-const TalentDetailCertificates = () => {
+const TalentDetailCertificateCard = () => {
   return (
-    <article className="bg-gray-100 p-2">
-      <div>
-        <div>
+    <CardOne>
+      <div className="space-y-2">
+        <div className="max-h-[100px] overflow-hidden">
           <Image
             src={"/assets/certificate.jpg"}
             alt="certificate"
+            className="w-full"
             width={200}
             height={200}
           />
         </div>
+        <div>
+          <h4 className="text-gray-400 text-sm">Certificado en Frontend</h4>
+          <span className="text-gray-400 text-xs">PDF</span>
+        </div>
       </div>
-    </article>
+    </CardOne>
+  );
+};
+const TalentDetailCertificateCardUpload = () => {
+  return (
+    <CardOne className="flex">
+      <div className="flex flex-col items-center m-auto">
+        <span className="rounded bg-gray-200 rounded-full p-1">
+          <UploadIcon className="text-[18.5px]" />
+        </span>
+        <p className="text-primary-500 text-sm font-semibold">
+          Sube un archivo
+        </p>
+      </div>
+    </CardOne>
   );
 };
 
@@ -117,12 +59,14 @@ const TalentDetail = () => {
     <div
       className={clsx(
         styles.TalentDetailContainer,
-        "drop-shadow-md w-full border rounded rounded-lg border-gray-300 min-h-[100px] p-4"
+        "drop-shadow-md w-full border rounded rounded-lg border-gray-200 min-h-[100px] p-4"
       )}
     >
-      <div className={clsx(styles.TalentDetail, "")}>
+      <div className={clsx(styles.TalentDetail, "space-y-4")}>
         <TalentDetailHeader />
         <TalentDetailCertificates />
+        <TalentDetailSkills />
+        <TalentDetailDescription />
       </div>
     </div>
   );

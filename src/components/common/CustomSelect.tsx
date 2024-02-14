@@ -2,9 +2,9 @@ import { ArrowIcon } from "@/utils/icons";
 import clsx from "clsx";
 import React from "react";
 const variants = {
-  outline: "border  border-main text-main fill-main",
-  contained: "border border-secondary text-white fill-white bg-secondary",
-  noborder: " text-white bg-transparent fill-main",
+  outline: "border  border-primary-500 text-primary-500 fill-primary-500",
+  contained: "border border-tertiary text-white fill-white bg-tertiary",
+  noborder: " text-white bg-transparent fill-primary-500",
 };
 type CustomSelectProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
