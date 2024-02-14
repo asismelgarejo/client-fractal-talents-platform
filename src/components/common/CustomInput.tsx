@@ -12,7 +12,7 @@ type CustomInputProps = React.DetailedHTMLProps<
 const CustomInput: React.FC<CustomInputProps> = (props) => {
   const { label, startIcon, ...inputProps } = props;
   return (
-    <div className="w-full text-black space-y-2">
+    <div className="w-full text-black space-y-1">
       {label && <div className="text-start text-sm">{label}</div>}
       <div
         className={clsx(

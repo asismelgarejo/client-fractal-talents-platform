@@ -16,9 +16,11 @@ import CustomSelect from "@/components/common/CustomSelect";
 import CustomButton from "@/components/common/CustomButton";
 import { RefObject } from "@/components/common/CustomDialog";
 import DialogSalary from "@/components/dialogs/DialogSalary";
+import DialogProfileImage from "@/components/dialogs/DialogProfileImage";
 
 const TalentDetailHeader = () => {
   const refMoney = useRef<RefObject>(null);
+  const refProfileImage = useRef<RefObject>(null);
 
   return (
     <div className={clsx(styles.TalentDetailHeader, "space-x-2 text-black")}>
@@ -37,7 +39,7 @@ const TalentDetailHeader = () => {
               className="p-2.5 rounded-full bg-white shadow-lg"
               type="button"
               onClick={() => {
-                refMoney.current && refMoney.current.showDialog();
+                refProfileImage.current && refProfileImage.current.showDialog();
               }}
             >
               <EditIcon className="fill-gray-500 text-xl" />
@@ -99,6 +101,13 @@ const TalentDetailHeader = () => {
           refMoney.current && refMoney.current.showDialog();
         }}
       />
+      <DialogProfileImage
+        ref={refProfileImage}
+        closeModal={() => {
+          refProfileImage.current && refProfileImage.current.showDialog();
+        }}
+      />
+
     </div>
   );
 };
