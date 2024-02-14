@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 const variants = {
-  primary: "bg-primary-200 text-primary-500",
+  primary: "bg-primary-100 text-primary-500",
   secondary: "bg-secondary-200 text-secondary-500",
 };
 type CustomChipProps = React.DetailedHTMLProps<

@@ -20,11 +20,11 @@ const TalentDetailHeader = () => {
     <div
       className={clsx(
         styles.TalentDetailHeader,
-        "bg-green-300 space-x-2 text-black"
+        "space-x-2 text-black"
       )}
     >
       <div className="">
-        <div className="relative bg-red-200">
+        <div className="relative">
           <div className="rounded rounded-full overflow-hidden">
             <Image
               src={"/assets/user1.jpg"}
@@ -52,7 +52,7 @@ const TalentDetailHeader = () => {
             <MoneyIcon />
             <span>2500-3000</span>
           </span>
-          <button className="p-1 rounded-full bg-red-200" type="button">
+          <button className="p-1 rounded-full" type="button">
             <EditIcon className="fill-gray-500 text-xl" />
           </button>
         </div>
@@ -63,9 +63,9 @@ const TalentDetailHeader = () => {
           </span>
         </div>
       </div>
-      <div className="bg-red-200 h-full flex flex-col">
-        <div className="bg-red-500 flex space-x-6 h-fit">
-          <CustomSelect label="Ver CV" variant="noborder" />
+      <div className=" h-full flex flex-col">
+        <div className="flex space-x-6 h-fit">
+          <CustomSelect label="Ver CV" variant="outline" border={false}/>
           <CustomButton
             variant="contained"
             startIcon={<PhoneIcon className="text-xl" />}
@@ -73,12 +73,12 @@ const TalentDetailHeader = () => {
             Contactar
           </CustomButton>
         </div>
-        <div className="space-x-2 bg-green-200 mt-auto h-fit flex justify-end">
-          <button type="button" className="bg-green-400 h-fit">
-            <GithubIcon className="text-[24px] fill-gray-200" />
+        <div className="space-x-2 mt-auto h-fit flex justify-end">
+          <button type="button" className=" h-fit">
+            <GithubIcon className="text-[24px] fill-gray-400" />
           </button>
-          <button type="button" className="bg-green-400">
-            <LinkedInIcon className="text-[24px] fill-gray-200" />
+          <button type="button" className="">
+            <LinkedInIcon className="text-[24px] fill-gray-400" />
           </button>
         </div>
       </div>

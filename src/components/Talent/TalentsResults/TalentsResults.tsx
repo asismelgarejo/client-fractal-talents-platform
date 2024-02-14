@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React from "react";
-
 import styles from "./TalentResults.module.css";
 import TalentCard from "./TalentCard";
 

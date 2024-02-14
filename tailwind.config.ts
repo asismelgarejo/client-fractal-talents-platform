@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 const colors = {
   // ...defaultColors,
-  primary: { "500": "#0B85C3", "200": "#F0F9FF" },
+  primary: { "500": "#0B85C3", "200": "#F0F9FF", "100": "#F0F9FF" },
   tertiary: "#009688",
   secondary: { "500": "#C11574", "200": "#FDF2FA" },
   white: "#fff",
@@ -18,7 +18,7 @@ const colors = {
 const fontSize = {
   xs: "10px",
   sm: "14px",
-  md: "16px",
+  md: "16px", 
 };
 
 const config: Config = {

@@ -10,7 +10,7 @@ const CardOne: React.FC<CardOneProps> = (props) => {
       {...props}
       className={clsx(
         props?.className ?? "",
-        "bg-gray-100 p-2 w-fit rounded rounded-md w-full"
+        "bg-gray-100 p-2 w-fit rounded rounded-md w-full drop-shadow-none"
       )}
     />
   );

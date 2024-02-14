@@ -2,18 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+::-webkit-scrollbar {
+  width: 0.4em;
+  border-radius: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-}
-
-body {
-  background: white
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: #8fc6eb
 }

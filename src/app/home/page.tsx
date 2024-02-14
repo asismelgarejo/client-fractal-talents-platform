@@ -1,16 +1,16 @@
 import clsx from "clsx";
 import React from "react";
 import styles from "./home.module.css";
-import TalentDetail from "@/components/Talent/TalentDetail";
+import TalentDetail from "@/components/Talent/TalentDetail/TalentDetail";
 import FiltersBar from "@/components/FilterBar/FiltersBar";
-import TalentsResults from "@/components/Talent/TalentsResults";
+import TalentsResults from "@/components/Talent/TalentsResults/TalentsResults";
 
 const page = () => {
   return (
     <div
       className={clsx("max-w-screen-2xl w-full m-auto py-5 px-10  grow flex")}
       style={{
-        height: "calc(100vh - 131px)",
+        height: "calc(100vh - 91px)",
       }}
     >
       <div className={clsx(styles.Container, "")}>
