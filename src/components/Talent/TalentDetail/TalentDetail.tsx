@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./TalentDetail.module.css";
 import clsx from "clsx";
 import TalentDetailSkills from "./TalentDetailSkills";
@@ -22,9 +22,10 @@ const TalentDetail = () => {
         <TalentDetailCertificates />
         <TalentDetailSkills />
         <TalentDetailDescription />
-        <TalentDetailExperience/>
-        <TalentDetailEducation/>
+        <TalentDetailExperience />
+        <TalentDetailEducation />
       </div>
+
     </div>
   );
 };

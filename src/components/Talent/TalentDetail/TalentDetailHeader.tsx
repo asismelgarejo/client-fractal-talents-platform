@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./TalentDetail.module.css";
 import clsx from "clsx";
 import Image from "next/image";
@@ -14,15 +14,14 @@ import {
 import CustomRating from "@/components/common/CustomRating";
 import CustomSelect from "@/components/common/CustomSelect";
 import CustomButton from "@/components/common/CustomButton";
+import { RefObject } from "@/components/common/CustomDialog";
+import DialogSalary from "@/components/dialogs/DialogSalary";
 
 const TalentDetailHeader = () => {
+  const refMoney = useRef<RefObject>(null);
+
   return (
-    <div
-      className={clsx(
-        styles.TalentDetailHeader,
-        "space-x-2 text-black"
-      )}
-    >
+    <div className={clsx(styles.TalentDetailHeader, "space-x-2 text-black")}>
       <div className="">
         <div className="relative">
           <div className="rounded rounded-full overflow-hidden">
@@ -34,7 +33,13 @@ const TalentDetailHeader = () => {
             />
           </div>
           <div className="absolute right-0 bottom-0">
-            <button className="p-2.5 rounded-full bg-white" type="button">
+            <button
+              className="p-2.5 rounded-full bg-white shadow-lg"
+              type="button"
+              onClick={() => {
+                refMoney.current && refMoney.current.showDialog();
+              }}
+            >
               <EditIcon className="fill-gray-500 text-xl" />
             </button>
           </div>
@@ -52,7 +57,13 @@ const TalentDetailHeader = () => {
             <MoneyIcon />
             <span>2500-3000</span>
           </span>
-          <button className="p-1 rounded-full" type="button">
+          <button
+            className="p-1 rounded-full"
+            type="button"
+            onClick={() => {
+              refMoney.current && refMoney.current.showDialog();
+            }}
+          >
             <EditIcon className="fill-gray-500 text-xl" />
           </button>
         </div>
@@ -65,7 +76,7 @@ const TalentDetailHeader = () => {
       </div>
       <div className=" h-full flex flex-col">
         <div className="flex space-x-6 h-fit">
-          <CustomSelect label="Ver CV" variant="outline" border={false}/>
+          <CustomSelect label="Ver CV" variant="outline" border={false} />
           <CustomButton
             variant="contained"
             startIcon={<PhoneIcon className="text-xl" />}
@@ -82,6 +93,12 @@ const TalentDetailHeader = () => {
           </button>
         </div>
       </div>
+      <DialogSalary
+        ref={refMoney}
+        closeModal={() => {
+          refMoney.current && refMoney.current.showDialog();
+        }}
+      />
     </div>
   );
 };

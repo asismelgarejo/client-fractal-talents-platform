@@ -19,6 +19,7 @@ const fontSize = {
   xs: "10px",
   sm: "14px",
   md: "16px", 
+  lg: "18px", 
 };
 
 const config: Config = {

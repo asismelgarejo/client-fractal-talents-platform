@@ -4,6 +4,14 @@ const variants = {
   outline: "border  border-[#0B85C3] text-[#0B85C3] fill-[#0B85C3]",
   contained: "border border-[#009688] text-[#fff] fill-[#fff] bg-[#009688]",
 };
+// const bRadius = {
+//   sx: "rounded-",
+//   sm: "rounded-lg",
+//   md: "rounded-lg",
+//   lg: "rounded-lg",
+//   xl: "rounded-lg",
+//   "2xl": "rounded-lg",
+// };
 type CustomButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -19,11 +27,11 @@ const CustomButton: React.FC<CustomButtonProps> = (props) => {
     <button
       {...btnProps}
       className={clsx(
+        "rounded-lg justify-center flex space-x-2 inline-block items-center px-5 py-2 font-semibold text-sm",
         {
           [btnProps?.className ?? ""]: !!btnProps?.className,
           [variants[variant]]: true,
-        },
-        "rounded-lg flex space-x-2 inline-block items-center px-5 py-2 font-semibold text-sm"
+        }
       )}
     >
       {startIcon && <span>{startIcon}</span>}

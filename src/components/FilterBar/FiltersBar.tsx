@@ -43,7 +43,7 @@ const SearchInput = () => {
       <div className="min-w-[380px]">
         <CustomInput
           startIcon={<EyesIcon />}
-          className="text-black"
+          className="text-black shadow-md"
           placeholder="Buscar talento o puesto"
         />
       </div>
