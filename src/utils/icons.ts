@@ -7,6 +7,10 @@ import { default as StartOulinedIcon } from "@/assets/kid_star_oulined.svg";
 import { default as LocationIcon } from "@/assets/location_on.svg";
 import { default as MoneyIcon } from "@/assets/attach_money.svg";
 import { default as EditIcon } from "@/assets/edit-icon.svg";
+import { default as ArrowIcon } from "@/assets/expand-icon.svg";
+import { default as PhoneIcon } from "@/assets/phone-icon.svg";
+import { default as LinkedInIcon } from "@/assets/linkedin-icon.svg";
+import { default as GithubIcon } from "@/assets/github-icon.svg";
 
 export {
   EyesIcon,
@@ -17,5 +21,9 @@ export {
   StartOulinedIcon,
   LocationIcon,
   MoneyIcon,
-  EditIcon
+  EditIcon,
+  PhoneIcon,
+  ArrowIcon,
+  GithubIcon,
+  LinkedInIcon,
 };

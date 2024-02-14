@@ -9,11 +9,11 @@ type CustomButtonProps = React.DetailedHTMLProps<
   HTMLButtonElement
 > & {
   startIcon?: React.ReactNode;
-  btnVariant?: keyof typeof variants;
+  variant?: keyof typeof variants;
 };
 
 const CustomButton: React.FC<CustomButtonProps> = (props) => {
-  const { startIcon, children, btnVariant = "contained", ...btnProps } = props;
+  const { startIcon, children, variant = "contained", ...btnProps } = props;
 
   return (
     <button
@@ -21,7 +21,7 @@ const CustomButton: React.FC<CustomButtonProps> = (props) => {
       className={clsx(
         {
           [btnProps?.className ?? ""]: !!btnProps?.className,
-          [variants[btnVariant]]: true,
+          [variants[variant]]: true,
         },
         "rounded-lg flex space-x-2 inline-block items-center px-5 py-2 font-semibold text-sm"
       )}

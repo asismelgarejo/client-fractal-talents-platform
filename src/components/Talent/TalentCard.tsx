@@ -9,6 +9,7 @@ import {
   MoneyIcon,
 } from "@/utils/icons";
 import Image from "next/image";
+import CustomRating from "../common/CustomRating";
 
 type TalentCardProps = {
   active?: boolean;
@@ -32,13 +33,7 @@ const TalentCard: React.FC<TalentCardProps> = ({ active = false }) => {
             <h4 className="font-semibold">José Lopez Martinez</h4>
             <h6 className="text-xs text-gray-500">Full Stack Developer</h6>
           </div>
-          <div className="flex space-x-1">
-            <StartIcon />
-            <StartIcon />
-            <StartIcon />
-            <StartOulinedIcon />
-            <StartOulinedIcon />
-          </div>
+          <CustomRating />
           <div className="flex space-x-2">
             <span className="flex space-x-1 items-center text-xs text-gray-500">
               <LocationIcon />

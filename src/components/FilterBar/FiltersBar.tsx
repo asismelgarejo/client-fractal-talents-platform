@@ -11,7 +11,7 @@ const CHIPS = [
 const FiltersBar = () => {
   return (
     <div className="flex w-full" style={{ gridArea: "filters" }}>
-      <CustomButton type="button" btnVariant="outline" startIcon={<AddIcon />}>
+      <CustomButton type="button" variant="outline" startIcon={<AddIcon />}>
         Nuevo Talento
       </CustomButton>
       <div className="flex ml-auto space-x-5">
@@ -33,7 +33,7 @@ const FiltersBar = () => {
               placeholder="Buscar talento o puesto"
             />
           </div>
-          <CustomButton type="button" btnVariant="contained">
+          <CustomButton type="button" variant="contained">
             Buscar
           </CustomButton>
         </div>
