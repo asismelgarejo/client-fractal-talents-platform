@@ -12,6 +12,7 @@ import { default as PhoneIcon } from "@/assets/phone-icon.svg";
 import { default as LinkedInIcon } from "@/assets/linkedin-icon.svg";
 import { default as GithubIcon } from "@/assets/github-icon.svg";
 import { default as UploadIcon } from "@/assets/upload.svg";
+import { default as CheckIcon } from "@/assets/check.svg";
 
 export {
   EyesIcon,
@@ -28,4 +29,5 @@ export {
   GithubIcon,
   LinkedInIcon,
   UploadIcon,
+  CheckIcon,
 };

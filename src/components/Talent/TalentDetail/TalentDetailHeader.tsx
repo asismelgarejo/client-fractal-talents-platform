@@ -15,7 +15,7 @@ import CustomRating from "@/components/common/CustomRating";
 import CustomSelect from "@/components/common/CustomSelect";
 import CustomButton from "@/components/common/CustomButton";
 import { RefObject } from "@/components/common/CustomDialog";
-import DialogSalary from "@/components/dialogs/DialogSalary";
+import DialogAddSalaryRange from "@/components/dialogs/DialogAddSalaryRange";
 import DialogProfileImage from "@/components/dialogs/DialogProfileImage";
 
 const TalentDetailHeader = () => {
@@ -95,7 +95,7 @@ const TalentDetailHeader = () => {
           </button>
         </div>
       </div>
-      <DialogSalary
+      <DialogAddSalaryRange
         ref={refMoney}
         closeModal={() => {
           refMoney.current && refMoney.current.showDialog();

@@ -4,11 +4,12 @@ import CustomDialog, { RefObject } from "@/components/common/CustomDialog";
 import CustomInput from "../common/CustomInput";
 import CustomButton from "../common/CustomButton";
 import CardTwo from "../common/Cards/CardTwo";
+import BtnCheckbox from "../common/BtnCheckbox";
 
-type DialogSalaryProps = {
+type DialogAddSalaryRangeProps = {
   closeModal(): void;
 };
-const DialogSalary = forwardRef<RefObject, DialogSalaryProps>(
+const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
   ({ closeModal }, ref) => {
     return (
       <CustomDialog ref={ref}>
@@ -22,15 +23,15 @@ const DialogSalary = forwardRef<RefObject, DialogSalaryProps>(
             </p>
           </div>
           <div className="space-y-2">
-            <CustomInput className="rounded-md" />
-            <CustomInput className="rounded-md" />
+            <BtnCheckbox className="w-full rounded-md" checked>Soles</BtnCheckbox>
+            <BtnCheckbox className="w-full rounded-md">Dolares</BtnCheckbox>
             <br />
-            <div className="flex space-x-5">
-              <CustomInput type="number" label="Monto inicial" className="rounded-md" />
+            <div className="flex space-x-3">
+              <CustomInput type="number" label="Monto inicial" className="rounded-md"/>
               <CustomInput type="number" label="Monto final" className="rounded-md" />
             </div>
           </div>
-          <div className="flex grow space-x-5">
+          <div className="flex grow space-x-3">
             <CustomButton
               className="w-full"
               variant="outline"
@@ -46,4 +47,4 @@ const DialogSalary = forwardRef<RefObject, DialogSalaryProps>(
   }
 );
 
-export default DialogSalary;
+export default DialogAddSalaryRange;
