@@ -1,13 +1,59 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import CustomInput from "@/components/common/CustomInput";
 import CustomButton from "@/components/common/CustomButton";
 import { AddIcon, EyesIcon } from "@/utils/icons";
+import FloatingMenu from "../common/FloatingMenu";
 
-const CHIPS = [
-  { ID: 1, name: "Habilidades" },
-  { ID: 2, name: "Nivel de inglés" },
-  { ID: 3, name: "Favoritos" },
+const SKILLS = [
+  { id: 1, label: "Docker" },
+  { id: 2, label: "JS" },
+  { id: 3, label: "Avanzado" },
 ];
+const ENGLISH_LEVEL = [
+  { id: 1, label: "Básico" },
+  { id: 2, label: "Intermedio" },
+  { id: 3, label: "Avanzado" },
+];
+
+const Menus = () => {
+  const [skill, setSkill] = useState<any>(null);
+
+  return (
+    <div className="flex space-x-4">
+      <FloatingMenu
+        onChange={(item) => {
+          setSkill(item);
+        }}
+        label={skill?.label ?? "Habilidades"}
+        items={SKILLS}
+      />
+      <FloatingMenu
+        onChange={() => {}}
+        label="Nivel de inglés"
+        items={ENGLISH_LEVEL}
+      />
+      <FloatingMenu onChange={() => {}} label="Favoritos" items={[]} />
+    </div>
+  );
+};
+const SearchInput = () => {
+  return (
+    <div className="ml-auto flex space-x-5">
+      <div className="min-w-[380px]">
+        <CustomInput
+          startIcon={<EyesIcon />}
+          className="text-black"
+          placeholder="Buscar talento o puesto"
+        />
+      </div>
+      <CustomButton type="button" variant="contained">
+        Buscar
+      </CustomButton>
+    </div>
+  );
+};
+
 const FiltersBar = () => {
   return (
     <div className="flex w-full" style={{ gridArea: "filters" }}>
@@ -15,28 +61,8 @@ const FiltersBar = () => {
         Nuevo Talento
       </CustomButton>
       <div className="flex ml-auto space-x-5">
-        <div className="flex space-x-4">
-          {CHIPS.map((item) => (
-            <span
-              key={item.ID}
-              className="px-4 py-2 bg-gray-100 rounded rounded-3xl text-black"
-            >
-              {item.name}
-            </span>
-          ))}
-        </div>
-        <div className="ml-auto flex space-x-5">
-          <div className="min-w-[380px]">
-            <CustomInput
-              startIcon={<EyesIcon />}
-              className="text-black"
-              placeholder="Buscar talento o puesto"
-            />
-          </div>
-          <CustomButton type="button" variant="contained">
-            Buscar
-          </CustomButton>
-        </div>
+        <Menus />
+        <SearchInput />
       </div>
     </div>
   );

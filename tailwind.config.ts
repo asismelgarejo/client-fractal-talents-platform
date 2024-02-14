@@ -8,11 +8,11 @@ const colors = {
   white: "#fff",
   black: "#000",
   gray: {
-    "100": "#F9FAFB",
-    "200": "#F2F4F7",
-    "300": "#D0D5DD",
-    "400": "#98A2B3",
-    "500": "#667085",
+    100: "#F9FAFB",
+    200: "#F2F4F7",
+    300: "#D0D5DD",
+    400: "#98A2B3",
+    500: "#667085",
   },
 };
 const fontSize = {
@@ -31,9 +31,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors,
       fontSize,
     },
+    colors,
   },
   plugins: [],
 };

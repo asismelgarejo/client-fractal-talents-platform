@@ -4,6 +4,7 @@ import styles from "./home.module.css";
 import TalentDetail from "@/components/Talent/TalentDetail/TalentDetail";
 import FiltersBar from "@/components/FilterBar/FiltersBar";
 import TalentsResults from "@/components/Talent/TalentsResults/TalentsResults";
+import TalentDetailCertificates from "@/components/Talent/TalentDetail/TalentDetailCertificates";
 
 const page = () => {
   return (
