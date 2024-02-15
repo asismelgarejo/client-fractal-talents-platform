@@ -1,0 +1,7 @@
+.LoginContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: red;
+    height: 100vh;
+    width: 100vw;
+}

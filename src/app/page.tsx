@@ -2,7 +2,7 @@ import { permanentRedirect } from 'next/navigation'
 import React from 'react'
 
 const page = () => {
-  permanentRedirect("/home")
+  permanentRedirect("/login")
 }
 
 export default page
