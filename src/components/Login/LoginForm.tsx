@@ -8,9 +8,13 @@ import Image from "next/image";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { SignIn } from "@/types/SignIn";
 import { signinRepo } from "@/http/repositories/auth.repository";
+import { useSnackbar } from "notistack";
+import { AxiosError } from "axios";
 
 const LoginForm = () => {
   const router = useRouter();
+  const { enqueueSnackbar } = useSnackbar();
+
   const { control, handleSubmit, getValues, setValue } = useForm<SignIn>({
     defaultValues: { username: "", password: "" },
   });
@@ -19,9 +23,20 @@ const LoginForm = () => {
     try {
       await signinRepo(data);
       router.push("/home");
-    } catch (e) {
-      console.log(e);
-      alert("Login failed");
+    } catch (error: any) {
+      console.log(">onSubmit", error);
+      if(error instanceof AxiosError) {
+        alert("axios error")
+        
+      }
+      enqueueSnackbar(error?.message, {
+        variant: "error",
+        preventDuplicate: false,
+        anchorOrigin: {
+          vertical: "bottom",
+          horizontal: "left",
+        },
+      });
     }
   };
   return (

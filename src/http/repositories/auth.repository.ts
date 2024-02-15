@@ -8,9 +8,9 @@ export const signinRepo = async (payload: SignPayload): Promise<void> => {
     const response = await signinService(payload);
     const cookie = cookies();
     cookie.set("auth", response.access_token);
-  } catch (err) {
-    console.log("> AuthRepository > signin", err);
-    throw err;
+  } catch (error: any) {
+    console.log(">AuthRepository > signin",  error?.message);
+    throw error;
   }
 };
 export const logout = async (): Promise<void> => {
@@ -19,7 +19,7 @@ export const logout = async (): Promise<void> => {
     const cookie = cookies();
     cookie.delete("auth");
   } catch (err) {
-    console.log("> AuthRepository > signin", err);
+    console.log(">AuthRepository > signin", err);
     throw err;
   }
 };
