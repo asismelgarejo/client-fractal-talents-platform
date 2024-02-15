@@ -1,10 +1,7 @@
+import { TalentModel } from "@/types/talent";
 import { createModel } from "@rematch/core";
 
-export type TalentState = {
-  salaryRange: [number, number];
-};
-
-const INITIAL_STATE: TalentState = {
+const INITIAL_STATE: TalentModel = {
   salaryRange: [0, 0],
 };
 

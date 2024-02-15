@@ -6,10 +6,14 @@ import CustomInput from "./CustomInput";
 import styles from "./MainHeader.module.css";
 import clsx from "clsx";
 import { EyesIcon } from "@/utils/icons";
+import { logout } from "@/http/repositories/auth.repository";
+import { useRouter } from "next/navigation";
 
 type MainHeaderProps = {};
 
 const MainHeader: React.FC<MainHeaderProps> = ({}) => {
+  const router = useRouter();
+
   return (
     <header className="w-full bg-white text-black border-b border-gray-300">
       <div
@@ -37,6 +41,14 @@ const MainHeader: React.FC<MainHeaderProps> = ({}) => {
         </div>
         <div className={clsx(styles.ProfileContainer, "")}>
           <div className={clsx(styles.Profile)}>
+            <button
+              onClick={async () => {
+                await logout();
+                router.push("/login");
+              }}
+            >
+              LOG OUT
+            </button>
             <Image
               className={clsx(styles.ProfileImage, "rounded-full overflow")}
               src="/assets/avatar.png"
@@ -47,7 +59,9 @@ const MainHeader: React.FC<MainHeaderProps> = ({}) => {
             <h4 className={clsx(styles.ProfileName, "text-basis font-bold")}>
               Claudia Vazquez
             </h4>
-            <span className={clsx(styles.ProfilePosition, "text-sm text-gray-800")}>
+            <span
+              className={clsx(styles.ProfilePosition, "text-sm text-gray-800")}
+            >
               Reclutador
             </span>
           </div>

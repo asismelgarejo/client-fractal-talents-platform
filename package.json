@@ -11,11 +11,14 @@
   "dependencies": {
     "@rematch/core": "^2.2.0",
     "@svgr/webpack": "^8.1.0",
+    "axios": "^1.6.7",
     "clsx": "^2.1.0",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.50.1",
     "react-redux": "^9.1.0",
+    "redaxios": "^0.5.1",
     "usehooks-ts": "^2.14.0"
   },
   "devDependencies": {
