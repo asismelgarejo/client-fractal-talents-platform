@@ -15,8 +15,8 @@ const ExperienceCard = () => {
           width={48}
           height={48}
           style={{
-            width: "auto",
-            height: "auto",
+            // width: "auto",
+            // height: "auto",
           }}
         />
         <div>

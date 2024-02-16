@@ -1,18 +1,18 @@
 import CardOne from "@/components/common/Cards/CardOne";
 import { RefObject } from "@/components/common/CustomDialog";
-import DialogCV from "@/components/dialogs/DialogCV";
+import DialogCertification from "@/components/dialogs/DialogCertification";
 import { UploadIcon } from "@/utils/icons";
 import Image from "next/image";
 import { useRef } from "react";
 
 const TalentDetailCertificateCardUpload = () => {
-  const refCV = useRef<RefObject>(null);
+  const refFile = useRef<RefObject>(null);
 
   return (
     <>
       <CardOne
         className="flex cursor-pointer"
-        onClick={() => refCV.current && refCV.current.showDialog()}
+        onClick={() => refFile.current && refFile.current.showDialog()}
       >
         <div className="flex flex-col items-center m-auto">
           <span className="rounded bg-gray-200 rounded-full p-1">
@@ -23,10 +23,10 @@ const TalentDetailCertificateCardUpload = () => {
           </p>
         </div>
       </CardOne>
-      <DialogCV
-        ref={refCV}
+      <DialogCertification
+        ref={refFile}
         closeModal={() => {
-          refCV.current && refCV.current.showDialog();
+          refFile.current && refFile.current.showDialog();
         }}
       />
     </>

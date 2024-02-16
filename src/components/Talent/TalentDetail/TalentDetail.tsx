@@ -8,6 +8,7 @@ import TalentDetailHeader from "./TalentDetailHeader";
 import TalentDetailCertificates from "./TalentDetailCertificates";
 import TalentDetailExperience from "./TalentDetailExperience";
 import TalentDetailEducation from "./TalentDetailEducation";
+import TalentDetailLanguages from "./TalentDetailLanguages";
 
 const TalentDetail = () => {
   return (
@@ -24,6 +25,7 @@ const TalentDetail = () => {
         <TalentDetailDescription />
         <TalentDetailExperience />
         <TalentDetailEducation />
+        <TalentDetailLanguages />
       </div>
 
     </div>

@@ -52,7 +52,7 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
                 render={({ field, fieldState }) => (
                   <div className="space-y-3">
                     <BtnCheckbox
-                      className="w-full rounded-md"
+                      className="w-full py-4"
                       variant="outline"
                       txtColor="gray"
                       borderColor="gray"
@@ -64,7 +64,7 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
                       Soles
                     </BtnCheckbox>
                     <BtnCheckbox
-                      className="w-full rounded-md"
+                      className="w-full py-4"
                       variant="outline"
                       txtColor="gray"
                       borderColor="gray"
@@ -114,6 +114,8 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
                 className="w-full"
                 variant="outline"
                 onClick={() => closeModal()}
+                txtColor="gray"
+                borderColor="gray"
               >
                 Cancelar
               </CustomButton>

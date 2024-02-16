@@ -23,7 +23,7 @@ const BtnCheckbox = forwardRef<HTMLButtonElement, BtnCheckboxProps>(
         {...btnProps}
         ref={ref}
         className={clsx(
-          "rounded-lg justify-between flex space-x-2 inline-block items-center px-5 py-2 text-sm font-medium",
+          "justify-between flex inline-block px-5 py-2 text-sm ",
           btnProps.className ?? "",
           { ["bg-primary-100"]: checked }
         )}

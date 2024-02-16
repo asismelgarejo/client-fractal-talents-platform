@@ -19,10 +19,12 @@ import DialogAddSalaryRange from "@/components/dialogs/DialogAddSalaryRange";
 import DialogProfileImage from "@/components/dialogs/DialogProfileImage";
 import { useSelector } from "react-redux";
 import { IRootState } from "@/store";
+import DialogSocialNetworks from "@/components/dialogs/DialogSocialNetworks";
 
 const TalentDetailHeader = () => {
   const refMoney = useRef<RefObject>(null);
   const refProfileImage = useRef<RefObject>(null);
+  const refSocialNet = useRef<RefObject>(null);
   const talentData = useSelector((root: IRootState) => root.talent);
   return (
     <div className={clsx(styles.TalentDetailHeader, "space-x-2 text-black")}>
@@ -59,7 +61,9 @@ const TalentDetailHeader = () => {
           </span>
           <span className="flex space-x-1 items-center">
             <MoneyIcon />
-            <span>{talentData.salary.minimum}-{talentData.salary.maximum}</span>
+            <span>
+              {talentData.salary.minimum}-{talentData.salary.maximum}
+            </span>
           </span>
           <button
             className="p-1 rounded-full"
@@ -80,7 +84,25 @@ const TalentDetailHeader = () => {
       </div>
       <div className=" h-full flex flex-col">
         <div className="flex space-x-6 h-fit">
-          <CustomSelect label="Ver CV" variant="outline" border={false} />
+          <CustomSelect
+            value="Ver CV"
+            txtColor="primary"
+            fillColor="primary"
+            onChange={(item) => {
+              // setSkill(item);
+            }}
+            border={false}
+            options={[
+              {
+                id: 1,
+                label: "CV",
+              },
+              {
+                id: 2,
+                label: "CV FRACTAL",
+              },
+            ]}
+          />
           <CustomButton
             variant="contained"
             startIcon={<PhoneIcon className="text-xl" />}
@@ -89,10 +111,22 @@ const TalentDetailHeader = () => {
           </CustomButton>
         </div>
         <div className="space-x-2 mt-auto h-fit flex justify-end">
-          <button type="button" className=" h-fit">
+          <button
+            type="button"
+            className=" h-fit"
+            onClick={() => {
+              refSocialNet?.current?.showDialog();
+            }}
+          >
             <GithubIcon className="text-[24px] fill-gray-400" />
           </button>
-          <button type="button" className="">
+          <button
+            type="button"
+            className=""
+            onClick={() => {
+              refSocialNet?.current?.showDialog();
+            }}
+          >
             <LinkedInIcon className="text-[24px] fill-gray-400" />
           </button>
         </div>
@@ -107,6 +141,12 @@ const TalentDetailHeader = () => {
         ref={refProfileImage}
         closeModal={() => {
           refProfileImage.current && refProfileImage.current.showDialog();
+        }}
+      />
+      <DialogSocialNetworks
+        ref={refSocialNet}
+        closeModal={() => {
+          refSocialNet.current && refSocialNet.current.showDialog();
         }}
       />
     </div>

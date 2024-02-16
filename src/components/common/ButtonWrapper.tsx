@@ -18,7 +18,7 @@ export const customBorderColors: Record<keyof typeof colors, string> = {
   secondary: "",
   black: "",
   error: "",
-  gray: "border-gray-500",
+  gray: "border-gray-400",
   white: "",
   tertiary: "border-tertiary-500",
 };
@@ -41,7 +41,7 @@ export const customFillColors: Record<keyof typeof colors, string> = {
   tertiary: "fill-tertiary-500",
 };
 
-type CustomStyles = {
+export type CustomStyles = {
   txtColor?: keyof typeof colors;
   fillColor?: keyof typeof colors;
   bgColor?: keyof typeof colors;

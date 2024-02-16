@@ -15,8 +15,8 @@ export const MenuItem: React.FC<MenuItemProps> = (props) => {
     <span
       {...itemprops}
       className={clsx(
-        "px-4 py-2 hover:bg-primary-200 block",
         props?.className ?? "",
+        "px-4 py-2 hover:bg-primary-100 block ",
         {
           ["bg-primary-200"]: active,
           ["cursor-pointer"]: cursor,
