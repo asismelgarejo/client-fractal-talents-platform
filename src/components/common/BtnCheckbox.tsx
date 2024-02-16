@@ -23,8 +23,9 @@ const BtnCheckbox = forwardRef<HTMLButtonElement, BtnCheckboxProps>(
         {...btnProps}
         ref={ref}
         className={clsx(
-          "rounded-lg justify-between flex space-x-2 inline-block items-center px-5 py-2 font-semibold text-sm",
-          btnProps.className ?? ""
+          "rounded-lg justify-between flex space-x-2 inline-block items-center px-5 py-2 text-sm font-medium",
+          btnProps.className ?? "",
+          { ["bg-primary-100"]: checked }
         )}
         txtColor={checked ? "primary" : txtColor}
         borderColor={checked ? "primary" : borderColor}
@@ -33,7 +34,7 @@ const BtnCheckbox = forwardRef<HTMLButtonElement, BtnCheckboxProps>(
         {
           <span
             className={clsx(
-              "border-gray-300  rounded w-[16px] h-[16px] rounded-full border  flex items-center justify-center",
+              "border-gray-300 rounded w-[16px] h-[16px]  rounded-full border  flex items-center justify-center",
               {
                 ["border-primary-500 bg-primary-500"]: checked,
                 ["bg-primary-500"]: checked,
@@ -46,37 +47,6 @@ const BtnCheckbox = forwardRef<HTMLButtonElement, BtnCheckboxProps>(
         }
       </ButtonWrapper>
     );
-
-    // return (
-    //   <button
-    //     {...btnProps}
-    //     type="button"
-    //     className={clsx(
-    //       "rounded-lg justify-between flex space-x-2 inline-block items-center px-5 py-2 font-semibold text-sm",
-    //       {
-    //         [btnProps?.className ?? ""]: !!btnProps?.className,
-    //         [customVariants[variant]]: true,
-    //         [customColors[btnProps?.disabled ? "gray" : color]]: true,
-    //       }
-    //     )}
-    //   >
-    //     <span>{children}</span>
-    //     {
-    //       <span
-    //         className={clsx(
-    //           "border-gray-300  rounded w-[16px] h-[16px] rounded-full border  flex items-center justify-center",
-    //           {
-    //             ["border-primary-500 bg-primary-500"]: checked,
-    //             ["bg-primary-500"]: checked,
-    //             ["bg-white"]: !checked,
-    //           }
-    //         )}
-    //       >
-    //         {checked && <CheckIcon className="text-[10px]" />}
-    //       </span>
-    //     }
-    //   </button>
-    // );
   }
 );
 

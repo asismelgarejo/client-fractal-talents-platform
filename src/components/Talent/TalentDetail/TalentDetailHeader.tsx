@@ -17,11 +17,13 @@ import CustomButton from "@/components/common/CustomButton";
 import { RefObject } from "@/components/common/CustomDialog";
 import DialogAddSalaryRange from "@/components/dialogs/DialogAddSalaryRange";
 import DialogProfileImage from "@/components/dialogs/DialogProfileImage";
+import { useSelector } from "react-redux";
+import { IRootState } from "@/store";
 
 const TalentDetailHeader = () => {
   const refMoney = useRef<RefObject>(null);
   const refProfileImage = useRef<RefObject>(null);
-
+  const talentData = useSelector((root: IRootState) => root.talent);
   return (
     <div className={clsx(styles.TalentDetailHeader, "space-x-2 text-black")}>
       <div className="">
@@ -57,7 +59,7 @@ const TalentDetailHeader = () => {
           </span>
           <span className="flex space-x-1 items-center">
             <MoneyIcon />
-            <span>2500-3000</span>
+            <span>{talentData.salary.minimum}-{talentData.salary.maximum}</span>
           </span>
           <button
             className="p-1 rounded-full"
@@ -107,7 +109,6 @@ const TalentDetailHeader = () => {
           refProfileImage.current && refProfileImage.current.showDialog();
         }}
       />
-
     </div>
   );
 };

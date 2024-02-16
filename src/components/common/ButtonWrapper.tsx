@@ -120,9 +120,9 @@ const ButtonWrapper = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
         className={clsx(
           "rounded-lg justify-center flex space-x-2 inline-block items-center px-5 py-2 font-semibold text-sm",
           {
+            ...defaultStyle,
             [btnProps?.className ?? ""]: !!btnProps?.className,
             [customVariants[variant]]: true,
-            ...defaultStyle,
           }
         )}
       >

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { SnackbarProvider } from "notistack";
+import { Provider } from "react-redux";
+import store from "@/store";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -8,7 +9,7 @@ type LayoutProps = {
 const template: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <SnackbarProvider maxSnack={1}>{children}</SnackbarProvider>
+      <Provider store={store}>{children} </Provider>
     </>
   );
 };

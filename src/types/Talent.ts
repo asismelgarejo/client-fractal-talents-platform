@@ -1,3 +1,9 @@
+type Currency =  "USD" | "PEN"
+export type TalentSalary = {
+  minimum: number;
+  maximum: number;
+  currency: Currency;
+};
 export type TalentModel = {
-  salaryRange: [number, number];
+  salary: TalentSalary;
 };

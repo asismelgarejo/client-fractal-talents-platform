@@ -15,9 +15,11 @@ import { default as UploadIcon } from "@/assets/upload.svg";
 import { default as CheckIcon } from "@/assets/check.svg";
 import { default as EyeIcon } from "@/assets/eye.svg";
 import { default as EyeCrossedIcon } from "@/assets/eye-crossed.svg";
+import { default as OutlineHeartIcon } from "@/assets/outline_heart.svg";
 
 export {
   EyesIcon,
+  OutlineHeartIcon,
   AddIcon,
   HeartContainedIcon,
   HeartOutlinedIcon,

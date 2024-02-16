@@ -2,14 +2,18 @@ import { TalentModel } from "@/types/talent";
 import { createModel } from "@rematch/core";
 
 const INITIAL_STATE: TalentModel = {
-  salaryRange: [0, 0],
+  salary: {
+    maximum: 3000,
+    minimum: 2500,
+    currency: "PEN",
+  },
 };
 
 export const talentModel = createModel()({
   state: INITIAL_STATE,
   reducers: {
-    LOAD_TALENT(state, product) {
-      return state;
+    UPDATE_SALARY(state, salary) {
+      return { ...state, salary };
     },
   },
 

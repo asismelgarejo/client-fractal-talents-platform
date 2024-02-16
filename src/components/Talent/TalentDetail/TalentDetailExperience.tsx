@@ -14,6 +14,10 @@ const ExperienceCard = () => {
           alt="fractal"
           width={48}
           height={48}
+          style={{
+            width: "auto",
+            height: "auto",
+          }}
         />
         <div>
           <h4 className="text-black font-bold">FRACTAL</h4>

@@ -1,6 +1,6 @@
 export const colors = {
   // ...defaultColors,
-  primary: { "500": "#0B85C3", "200": "#F0F9FF", "100": "#F0F9FF" },
+  primary: { "500": "#0B85C3", "100": "#F0F9FF" },
   tertiary: { "500": "#009688" },
   secondary: { "500": "#C11574", "200": "#FDF2FA" },
   error: {
