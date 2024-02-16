@@ -64,8 +64,8 @@ const CustomSelect: React.FC<CustomSelectProps> = (props) => {
           onClick={(e) => handleClickInside()}
           variant={variant}
           className={clsx({
-            ["border-white"]: !border,
-            "w-full justify-between py-2 font-normal": true,
+            ["!border-white"]: !border,
+            "w-full justify-between py-2": true,
           })}
           borderColor={borderColor ?? "gray"}
           txtColor={txtColor ?? "gray"}

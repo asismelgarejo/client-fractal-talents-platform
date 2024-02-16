@@ -114,7 +114,6 @@ const LoginForm = () => {
             </Link>
             <CustomButton
               className="w-full mt-4"
-              variant="contained"
               type="submit"
               disabled={loading}
             >

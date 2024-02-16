@@ -95,11 +95,11 @@ const TalentDetailHeader = () => {
             options={[
               {
                 id: 1,
-                label: "CV",
+                name: "CV",
               },
               {
                 id: 2,
-                label: "CV FRACTAL",
+                name: "CV FRACTAL",
               },
             ]}
           />
