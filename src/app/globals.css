@@ -10,3 +10,7 @@
 ::-webkit-scrollbar-thumb {
   background-color: #8fc6eb
 }
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}

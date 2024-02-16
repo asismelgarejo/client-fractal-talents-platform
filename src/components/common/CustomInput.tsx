@@ -7,6 +7,7 @@ type CustomInputProps = React.DetailedHTMLProps<
   HTMLInputElement
 > & {
   startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
   label?: string;
   error?: boolean;
   errorMsg?: string;
@@ -14,7 +15,7 @@ type CustomInputProps = React.DetailedHTMLProps<
 
 const CustomInput = forwardRef<HTMLDivElement, CustomInputProps>(
   (props, ref) => {
-    const { label, startIcon, error = false, ...inputProps } = props;
+    const { label, startIcon, endIcon, error = false, ...inputProps } = props;
     return (
       <div className="w-full text-black space-y-1">
         {label && <div className="text-start text-sm">{label}</div>}
@@ -34,7 +35,8 @@ const CustomInput = forwardRef<HTMLDivElement, CustomInputProps>(
             className={
               "min-h-[10px] min-w-[100px] w-full px-2 py-2 outline-none bg-transparent"
             }
-          />
+            />
+            {endIcon ? endIcon : null}
         </div>
       </div>
     );

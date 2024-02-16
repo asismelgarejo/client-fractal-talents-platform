@@ -13,6 +13,8 @@ import { default as LinkedInIcon } from "@/assets/linkedin-icon.svg";
 import { default as GithubIcon } from "@/assets/github-icon.svg";
 import { default as UploadIcon } from "@/assets/upload.svg";
 import { default as CheckIcon } from "@/assets/check.svg";
+import { default as EyeIcon } from "@/assets/eye.svg";
+import { default as EyeCrossedIcon } from "@/assets/eye-crossed.svg";
 
 export {
   EyesIcon,
@@ -30,4 +32,6 @@ export {
   LinkedInIcon,
   UploadIcon,
   CheckIcon,
+  EyeIcon,
+  EyeCrossedIcon
 };

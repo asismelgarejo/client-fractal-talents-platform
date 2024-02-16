@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "../common/CustomInput";
 import CustomButton from "../common/CustomButton";
 import Link from "next/link";
@@ -10,6 +10,7 @@ import { SignIn } from "@/types/SignIn";
 import { signinRepo } from "@/http/repositories/auth.repository";
 import { useSnackbar } from "notistack";
 import { AxiosError } from "axios";
+import { EyeCrossedIcon, EyeIcon } from "@/utils/icons";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -19,15 +20,17 @@ const LoginForm = () => {
     defaultValues: { username: "", password: "" },
   });
 
+  const [loading, setLoading] = useState(false);
+  const [inputType, setInputType] = useState<"password" | "text">("password");
   const onSubmit: SubmitHandler<SignIn> = async (data) => {
     try {
+      setLoading(true);
       await signinRepo(data);
       router.push("/home");
     } catch (error: any) {
       console.log(">onSubmit", error);
-      if(error instanceof AxiosError) {
-        alert("axios error")
-        
+      if (error instanceof AxiosError) {
+        alert("axios error");
       }
       enqueueSnackbar(error?.message, {
         variant: "error",
@@ -37,11 +40,13 @@ const LoginForm = () => {
           horizontal: "left",
         },
       });
+    } finally {
+      setLoading(false);
     }
   };
   return (
     <div className="flex bg-white">
-      <div className="w-[80%] m-auto p-4">
+      <div className="w-[60%] m-auto p-4">
         <Image
           src={"/assets/fractal_logo.svg"}
           style={{}}
@@ -82,6 +87,23 @@ const LoginForm = () => {
                   label="Contraseña"
                   placeholder="Contraseña"
                   error={!!fieldState.error}
+                  type={inputType}
+                  endIcon={
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setInputType((prev) =>
+                          prev === "password" ? "text" : "password"
+                        )
+                      }
+                    >
+                      {inputType === "password" ? (
+                        <EyeIcon className={"fill-gray-400 text-[18.4px]"} />
+                      ) : (
+                        <EyeCrossedIcon className={"stroke-gray-400 text-[18.4px]"}/>
+                      )}
+                    </button>
+                  }
                 />
               )}
             />
@@ -94,6 +116,7 @@ const LoginForm = () => {
               className="w-full mt-4"
               variant="contained"
               type="submit"
+              disabled={loading}
             >
               Iniciar sesión
             </CustomButton>

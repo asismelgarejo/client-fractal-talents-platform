@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React from "react";
 const variants = {
-  outline: "border  border-[#0B85C3] text-[#0B85C3] fill-[#0B85C3]",
-  contained: "border border-[#009688] text-[#fff] fill-[#fff] bg-[#009688]",
+  outline: "border  border-primary-500 text-primary-500 fill-primary-500",
+  contained: "border border-tertiary-500 text-white fill-white bg-tertiary-500",
 };
 // const bRadius = {
 //   sx: "rounded-",
@@ -31,6 +31,7 @@ const CustomButton: React.FC<CustomButtonProps> = (props) => {
         {
           [btnProps?.className ?? ""]: !!btnProps?.className,
           [variants[variant]]: true,
+          ["border-gray-500 bg-gray-300"]: !!btnProps?.disabled,
         }
       )}
     >
