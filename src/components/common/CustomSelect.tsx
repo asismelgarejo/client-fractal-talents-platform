@@ -12,8 +12,8 @@ const variants = {
   contained: "border-tertiary text-white fill-white bg-tertiary",
 };
 type CustomSelectProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
+  React.ButtonHTMLAttributes<Omit<HTMLElement, "onChange">>,
+  Omit<HTMLElement, "onChange">
 > & {
   variant?: keyof typeof variants;
   label?: string;
@@ -24,8 +24,8 @@ type CustomSelectProps = React.DetailedHTMLProps<
   placeholder?: string;
 } & CustomStyles;
 
-type MenuItemProps = {
-  label: string;
+export type MenuItemProps = {
+  name: string;
   id: number;
 };
 
@@ -92,7 +92,7 @@ const CustomSelect: React.FC<CustomSelectProps> = (props) => {
               }}
               cursor
             >
-              {item.label}
+              {item.name}
             </MenuItem>
           ))}
         </CardTwo>

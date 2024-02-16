@@ -2,12 +2,21 @@ import CardOne from "@/components/common/Cards/CardOne";
 import { RefObject } from "@/components/common/CustomDialog";
 import CustomRating from "@/components/common/CustomRating";
 import DialogLanguage from "@/components/dialogs/DialogLanguage";
+import { IRootState } from "@/store";
+import { Language } from "@/types/talent";
 import { AddIcon, EditIcon } from "@/utils/icons";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { useSelector } from "react-redux";
 
-const LanguageCard = () => {
+type LanguageCardProps = {
+  // id: number;
+};
+const LanguageCard: React.FC<LanguageCardProps> = ({  }) => {
   const refLangauge = useRef<RefObject>(null);
-
+  const talentData = useSelector((root: IRootState) => root.talent);
+  // const [language, setLanguage] = useState<Language | undefined>(() =>
+  //   talentData.languages.find((language) => language.id === id)
+  // );
   return (
     <>
       <CardOne className="py-4">
@@ -24,7 +33,8 @@ const LanguageCard = () => {
             style={{ marginLeft: "auto" }}
           >
             <button
-              onClick={() => refLangauge.current?.showDialog()}
+              onClick={() => {
+                refLangauge.current?.showDialog()}}
               type="button"
             >
               <EditIcon className="fill-gray-500 text-2xl" />
@@ -33,6 +43,7 @@ const LanguageCard = () => {
         </div>
       </CardOne>
       <DialogLanguage
+        // language={language}
         ref={refLangauge}
         closeModal={() => {
           refLangauge.current && refLangauge.current.showDialog();
@@ -44,6 +55,7 @@ const LanguageCard = () => {
 
 const TalentDetailLanguages = () => {
   const refLangauge = useRef<RefObject>(null);
+  const talentData = useSelector((root: IRootState) => root.talent);
 
   return (
     <div className="space-y-2 relative">

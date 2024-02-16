@@ -7,6 +7,25 @@ const INITIAL_STATE: TalentModel = {
     minimum: 2500,
     currency: "PEN",
   },
+  languages: [
+    {
+      language: {
+        id: 1,
+        name: "English",
+      },
+      level: {
+        id: 1,
+        name: "Advanced",
+      },
+    },
+    {
+      language: { id: 2, name: "Spanish" },
+      level: {
+        id: 1,
+        name: "Advanced",
+      },
+    },
+  ],
 };
 
 export const talentModel = createModel()({
