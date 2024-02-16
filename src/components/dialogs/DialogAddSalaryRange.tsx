@@ -23,10 +23,23 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
             </p>
           </div>
           <div className="space-y-2">
-            <BtnCheckbox className="w-full rounded-md" checked>
+            <BtnCheckbox
+              className="w-full rounded-md"
+              variant="outline"
+              txtColor="gray"
+              borderColor="gray"
+              checked
+            >
               Soles
             </BtnCheckbox>
-            <BtnCheckbox className="w-full rounded-md">Dolares</BtnCheckbox>
+            <BtnCheckbox
+              className="w-full rounded-md"
+              variant="outline"
+              checked
+
+            >
+              Dolares
+            </BtnCheckbox>
             <br />
             <div className="flex space-x-3">
               <CustomInput
@@ -49,9 +62,7 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
             >
               Cancelar
             </CustomButton>
-            <CustomButton className="w-full" variant="outline">
-              Agregar
-            </CustomButton>
+            <CustomButton className="w-full">Agregar</CustomButton>
           </div>
         </CardTwo>
       </CustomDialog>

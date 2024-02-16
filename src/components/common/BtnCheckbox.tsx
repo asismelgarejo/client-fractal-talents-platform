@@ -1,57 +1,83 @@
-import { colors } from "@/utils/colors";
-import { customColors, customVariants } from "@/utils/custom-styles";
+/* eslint-disable react/display-name */
 import { CheckIcon } from "@/utils/icons";
 import clsx from "clsx";
-import React from "react";
+import React, { forwardRef } from "react";
+import ButtonWrapper, { ButtonWrapperProps } from "./ButtonWrapper";
 
-type BtnCheckboxProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
-> & {
-  variant?: keyof typeof customVariants;
+type BtnCheckboxProps = ButtonWrapperProps & {
   checked?: boolean;
-  color?: keyof typeof colors;
 };
 
-const BtnCheckbox: React.FC<BtnCheckboxProps> = (props) => {
-  const {
-    checked = false,
-    color = "primary",
-    children,
-    variant = "outline",
-    ...btnProps
-  } = props;
+const BtnCheckbox = forwardRef<HTMLButtonElement, BtnCheckboxProps>(
+  (props, ref) => {
+    const {
+      checked = false,
+      children,
+      txtColor,
+      borderColor,
+      ...btnProps
+    } = props;
 
-  return (
-    <button
-      {...btnProps}
-      type="button"
-      className={clsx(
-        "rounded-lg justify-between flex space-x-2 inline-block items-center px-5 py-2 font-semibold text-sm",
+    return (
+      <ButtonWrapper
+        {...btnProps}
+        ref={ref}
+        className={clsx(
+          "rounded-lg justify-between flex space-x-2 inline-block items-center px-5 py-2 font-semibold text-sm",
+          btnProps.className ?? ""
+        )}
+        txtColor={checked ? "primary" : txtColor}
+        borderColor={checked ? "primary" : borderColor}
+      >
+        <span>{children}</span>
         {
-          [btnProps?.className ?? ""]: !!btnProps?.className,
-          [customVariants[variant]]: true,
-          [customColors[btnProps?.disabled ? "gray" : color]]: true,
+          <span
+            className={clsx(
+              "border-gray-300  rounded w-[16px] h-[16px] rounded-full border  flex items-center justify-center",
+              {
+                ["border-primary-500 bg-primary-500"]: checked,
+                ["bg-primary-500"]: checked,
+                ["bg-white"]: !checked,
+              }
+            )}
+          >
+            {checked && <CheckIcon className="text-[10px]" />}
+          </span>
         }
-      )}
-    >
-      <span>{children}</span>
-      {
-        <span
-          className={clsx(
-            "border-gray-300  rounded w-[16px] h-[16px] rounded-full border  flex items-center justify-center",
-            {
-              ["border-primary-500 bg-primary-500"]: checked,
-              ["bg-primary-500"]: checked,
-              ["bg-white"]: !checked,
-            }
-          )}
-        >
-          {checked && <CheckIcon className="text-[10px]" />}
-        </span>
-      }
-    </button>
-  );
-};
+      </ButtonWrapper>
+    );
+
+    // return (
+    //   <button
+    //     {...btnProps}
+    //     type="button"
+    //     className={clsx(
+    //       "rounded-lg justify-between flex space-x-2 inline-block items-center px-5 py-2 font-semibold text-sm",
+    //       {
+    //         [btnProps?.className ?? ""]: !!btnProps?.className,
+    //         [customVariants[variant]]: true,
+    //         [customColors[btnProps?.disabled ? "gray" : color]]: true,
+    //       }
+    //     )}
+    //   >
+    //     <span>{children}</span>
+    //     {
+    //       <span
+    //         className={clsx(
+    //           "border-gray-300  rounded w-[16px] h-[16px] rounded-full border  flex items-center justify-center",
+    //           {
+    //             ["border-primary-500 bg-primary-500"]: checked,
+    //             ["bg-primary-500"]: checked,
+    //             ["bg-white"]: !checked,
+    //           }
+    //         )}
+    //       >
+    //         {checked && <CheckIcon className="text-[10px]" />}
+    //       </span>
+    //     }
+    //   </button>
+    // );
+  }
+);
 
 export default BtnCheckbox;
