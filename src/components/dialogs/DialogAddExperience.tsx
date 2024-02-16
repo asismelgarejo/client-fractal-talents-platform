@@ -12,7 +12,7 @@ const DialogAddExperience = forwardRef<RefObject, DialogAddExperienceProps>(
   ({ closeModal }, ref) => {
     return (
       <CustomDialog ref={ref}>
-        <CardTwo className="rounded-[12px] p-[24px] min-w-[400px] space-y-5">
+        <CardTwo className="p-[24px] min-w-[400px] space-y-5" rd="md">
           <div className="text-start">
             <h2 className="text-lg text-black font-bold">
               Agrega una nueva experiencia

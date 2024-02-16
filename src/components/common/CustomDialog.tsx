@@ -1,7 +1,6 @@
 /* eslint-disable react/display-name */
 import clsx from "clsx";
 import React, { Ref, forwardRef, useImperativeHandle, useState } from "react";
-import CardTwo from "./Cards/CardTwo";
 
 type CustomDialogProps = {
   children?: React.ReactNode;

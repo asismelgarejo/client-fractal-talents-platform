@@ -13,7 +13,7 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
   ({ closeModal }, ref) => {
     return (
       <CustomDialog ref={ref}>
-        <CardTwo className="rounded-[12px] p-[24px] min-w-[400px] space-y-5">
+        <CardTwo className="p-[24px] min-w-[400px] space-y-5" rd="md">
           <div className="text-start">
             <h2 className="text-lg text-black font-bold">
               Agrega tu banda salarial
@@ -23,12 +23,22 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
             </p>
           </div>
           <div className="space-y-2">
-            <BtnCheckbox className="w-full rounded-md" checked>Soles</BtnCheckbox>
+            <BtnCheckbox className="w-full rounded-md" checked>
+              Soles
+            </BtnCheckbox>
             <BtnCheckbox className="w-full rounded-md">Dolares</BtnCheckbox>
             <br />
             <div className="flex space-x-3">
-              <CustomInput type="number" label="Monto inicial" className="rounded-md"/>
-              <CustomInput type="number" label="Monto final" className="rounded-md" />
+              <CustomInput
+                type="number"
+                label="Monto inicial"
+                className="rounded-md"
+              />
+              <CustomInput
+                type="number"
+                label="Monto final"
+                className="rounded-md"
+              />
             </div>
           </div>
           <div className="flex grow space-x-3">
@@ -39,7 +49,9 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
             >
               Cancelar
             </CustomButton>
-            <CustomButton className="w-full">Agregar</CustomButton>
+            <CustomButton className="w-full" variant="outline">
+              Agregar
+            </CustomButton>
           </div>
         </CardTwo>
       </CustomDialog>

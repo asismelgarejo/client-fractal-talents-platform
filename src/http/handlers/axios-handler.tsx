@@ -1,9 +1,12 @@
 "use server";
 import axios, {
+  AxiosError,
   AxiosInstance,
+  AxiosResponse,
   InternalAxiosRequestConfig,
 } from "axios";
 import { cookies } from "next/headers";
+import { ErrorResponse } from "../models/common";
 
 export const getAxiosInstance = async (): Promise<AxiosInstance> => {
   const http = axios.create({ baseURL: process.env.BACKEND_SERVICE });
@@ -12,20 +15,14 @@ export const getAxiosInstance = async (): Promise<AxiosInstance> => {
     config.headers["Authorization"] = `Bearer ${access_token}`;
     return config;
   });
-  // http.interceptors.response.use(
-  //   (response: AxiosResponse<any>) => {
-  //     return response; // Return all responses, including non-2xx responses
-  //   },
-  //   (error: AxiosError) => {
-  //     // Handle error response
-  //     if (error.response) {
-  //       throw error.response.data; // Throw the error response data
-  //     } else if (error.request) {
-  //       throw new Error("Request made but no response received");
-  //     } else {
-  //       throw new Error("Error setting up request: " + error.message);
-  //     }
-  //   }
-  // );
+  http.interceptors.response.use(
+    (response: AxiosResponse<any>) => {
+      return response;
+    },
+    (error: AxiosError<ErrorResponse>) => {
+      if (error.response) throw error.response.data.message;
+      throw error;
+    }
+  );
   return http;
 };

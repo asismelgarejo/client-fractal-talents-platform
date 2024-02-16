@@ -21,7 +21,7 @@ const CustomInput = forwardRef<HTMLDivElement, CustomInputProps>(
         {label && <div className="text-start text-sm">{label}</div>}
         <div
           className={clsx(
-            "rounded-3xl overflow-hidden w-full flex bg-white items-center px-2 border",
+            "rounded-3xl overflow-hidden w-full flex bg-white items-center px-3 border",
             {
               [inputProps?.className ?? ""]: !!inputProps?.className,
               ["border-gray-300"]: !error,

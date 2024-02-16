@@ -21,15 +21,11 @@ const TechnicalSkills = () => {
       </button>
       <h2 className="text-gray-500 font-bold text-sm">Habilidades Técnicas</h2>
       <div className="flex space-x-1 flex-wrap items-center gap-2">
-        <CustomChip label="JS" />
-        <CustomChip label="Java" />
-        <CustomChip label="Java" />
-        <CustomChip label="Java" />
-        <CustomChip label="Java" />
-        <CustomChip label="Java" />
-        <CustomChip label="Java" />
-        <CustomChip label="Java" />
-        <CustomChip label="Java" />
+        <CustomChip label="Data Structure" />
+        <CustomChip label="Docker" />
+        <CustomChip label="Express" />
+        <CustomChip label="Github" />
+        <CustomChip label="JavaScript" />
       </div>
       <DialogAddTechnicalSkill
         ref={refSkill}
@@ -54,11 +50,9 @@ const SoftSkills = () => {
       <h2 className="text-gray-500 font-bold text-sm">Habilidades Blandas</h2>
 
       <div className="flex space-x-1 flex-wrap items-center gap-2">
-        <CustomChip color="secondary" label="JS" />
-        <CustomChip color="secondary" label="JS" />
-        <CustomChip color="secondary" label="JS" />
-        <CustomChip color="secondary" label="JS" />
-        <CustomChip color="secondary" label="JS" />
+        <CustomChip color="secondary" label="Comunicación" />
+        <CustomChip color="secondary" label="Auto aprendizaje" />
+        <CustomChip color="secondary" label="Empatía" />
       </div>
       <DialogAddSoftSkill
         ref={refSkill}
