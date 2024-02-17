@@ -45,7 +45,7 @@ const DialogProfileImage = forwardRef<RefObject, DialogProfileImageProps>(
           <div className="flex grow space-x-5">
             <CustomButton
               className="w-full"
-              variant="gray_1"
+              variant="gray_2"
               onClick={() => closeModal()}
             >
               Cancelar

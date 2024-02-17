@@ -1,9 +1,15 @@
 import { StartIcon, StartOulinedIcon } from "@/utils/icons";
+import clsx from "clsx";
 import React from "react";
 
-const CustomRating = () => {
+type CustomRatingProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+> & {};
+const CustomRating: React.FC<CustomRatingProps> = (props) => {
+  const { className, ...divProps } = props;
   return (
-    <div className="flex space-x-1">
+    <div {...divProps} className={clsx("flex space-x-1", className)}>
       <StartIcon />
       <StartIcon />
       <StartIcon />

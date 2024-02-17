@@ -17,8 +17,11 @@ const TalentCard: React.FC<TalentCardProps> = ({ active = false }) => {
   return (
     <div
       className={clsx(
-        "bg-primary-200 w-full min-h-[100px] rounded rounded-xl p-4 text-black",
-        { [styles.Active]: active }
+        " w-full min-h-[100px] rounded rounded-xl p-4 text-black hover:bg-primary-100",
+        {
+          ["bg-primary-100"]: active,
+          ["bg-white"]: !active,
+        }
       )}
     >
       <div className={clsx("w-full h-full relative", styles.InnerContainer)}>

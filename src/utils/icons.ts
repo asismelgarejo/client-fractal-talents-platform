@@ -16,6 +16,7 @@ import { default as CheckIcon } from "@/assets/check.svg";
 import { default as EyeIcon } from "@/assets/eye.svg";
 import { default as EyeCrossedIcon } from "@/assets/eye-crossed.svg";
 import { default as OutlineHeartIcon } from "@/assets/outline_heart.svg";
+import { default as PlusIcon } from "@/assets/plus-icon.svg";
 
 export {
   EyesIcon,
@@ -35,5 +36,6 @@ export {
   UploadIcon,
   CheckIcon,
   EyeIcon,
-  EyeCrossedIcon
+  EyeCrossedIcon,
+  PlusIcon,
 };

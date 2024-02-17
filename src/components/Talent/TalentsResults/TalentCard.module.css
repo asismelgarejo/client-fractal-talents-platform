@@ -4,6 +4,3 @@
   column-gap: 15px;
   grid-template-areas: "image content";
 }
-.Active{
-  background-color: white;
-}
