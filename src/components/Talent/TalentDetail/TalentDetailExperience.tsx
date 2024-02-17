@@ -1,34 +1,60 @@
 import CardOne from "@/components/common/Cards/CardOne";
 import { RefObject } from "@/components/common/CustomDialog";
 import DialogAddExperience from "@/components/dialogs/DialogAddExperience";
-import { AddIcon } from "@/utils/icons";
+import { AddIcon, EditIcon } from "@/utils/icons";
 import Image from "next/image";
 import React, { useRef } from "react";
 
 const ExperienceCard = () => {
+  const refExperience = useRef<RefObject>(null);
+
   return (
-    <CardOne className="py-4">
-      <div className="flex space-x-2">
-        <Image
-          src="/assets/fractal_co.png"
-          alt="fractal"
-          width={48}
-          height={48}
-          style={{
-            // width: "auto",
-            // height: "auto",
-          }}
-        />
-        <div>
-          <h4 className="text-black font-bold">FRACTAL</h4>
-          <p className="text-sm text-gray-500 space-x-2">
-            <span>Desarrollador Full-Stack</span>
-            <span>2015 - 2021</span>
-            <span>6 años</span>
-          </p>
+    <>
+      <CardOne className="py-4">
+        <div className="flex space-x-2">
+          <Image
+            src="/assets/fractal_co.png"
+            alt="fractal"
+            width={48}
+            height={48}
+            style={
+              {
+                // width: "auto",
+                // height: "auto",
+              }
+            }
+          />
+          <div>
+            <h4 className="text-black font-bold">FRACTAL</h4>
+            <p className="text-sm text-gray-500 space-x-2">
+              <span>Desarrollador Full-Stack</span>
+              <span>2015 - 2021</span>
+              <span>6 años</span>
+            </p>
+          </div>
+          <div
+            className="flex items-center ml-auto"
+            style={{ marginLeft: "auto" }}
+          >
+            <button
+              onClick={() => {
+                refExperience.current?.showDialog();
+              }}
+              type="button"
+            >
+              <EditIcon className="fill-gray-500 text-2xl" />
+            </button>
+          </div>
         </div>
-      </div>
-    </CardOne>
+      </CardOne>
+      <DialogAddExperience
+        editing
+        ref={refExperience}
+        closeModal={() => {
+          refExperience.current && refExperience.current.showDialog();
+        }}
+      />
+    </>
   );
 };
 
@@ -49,6 +75,7 @@ const TalentDetailExperience = () => {
         <ExperienceCard />
       </div>
       <DialogAddExperience
+        editing={false}
         ref={refExperience}
         closeModal={() => {
           refExperience.current && refExperience.current.showDialog();

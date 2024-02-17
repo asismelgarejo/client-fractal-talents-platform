@@ -1,35 +1,61 @@
 import CardOne from "@/components/common/Cards/CardOne";
 import { RefObject } from "@/components/common/CustomDialog";
 import DialogAddEducation from "@/components/dialogs/DialogAddEducation";
-import { AddIcon } from "@/utils/icons";
+import { AddIcon, EditIcon } from "@/utils/icons";
 import Image from "next/image";
 import React, { useRef } from "react";
 
 const EducationCard = () => {
+  const refEducation = useRef<RefObject>(null);
+
   return (
-    <CardOne className="py-4">
-      <div className="flex space-x-2">
-        <Image
-          src="/assets/fractal_co.png"
-          alt="fractal"
-          width={"48"}
-          height={"48"}
-          style={{
-            // width: "auto",
-            // height: "auto",
-          }}
-        />
-        <div>
-          <h4 className="text-black font-bold">
-            Pontificia Universidad Católica del Perú
-          </h4>
-          <p className="text-sm text-gray-500 space-x-2">
-            <span>Bachiller en Ingeniería de sistemas</span>
-            <span>2015 - 2021</span>
-          </p>
+    <>
+      <CardOne className="py-4">
+        <div className="flex space-x-2">
+          <Image
+            src="/assets/fractal_co.png"
+            alt="fractal"
+            width={"48"}
+            height={"48"}
+            style={
+              {
+                // width: "auto",
+                // height: "auto",
+              }
+            }
+          />
+          <div>
+            <h4 className="text-black font-bold">
+              Pontificia Universidad Católica del Perú
+            </h4>
+            <p className="text-sm text-gray-500 space-x-2">
+              <span>Bachiller en Ingeniería de sistemas</span>
+              <span>2015 - 2021</span>
+            </p>
+          </div>
+          <div
+            className="flex items-center ml-auto"
+            style={{ marginLeft: "auto" }}
+          >
+            <button
+              onClick={() => {
+                refEducation.current?.showDialog();
+              }}
+              type="button"
+            >
+              <EditIcon className="fill-gray-500 text-2xl" />
+            </button>
+          </div>
         </div>
-      </div>
-    </CardOne>
+      </CardOne>
+      <DialogAddEducation
+        editing
+        ref={refEducation}
+        closeModal={() => {
+          refEducation.current && refEducation.current.showDialog();
+        }}
+      />
+    </>
   );
 };
 
@@ -54,6 +80,7 @@ const TalentDetailEducation = () => {
         <EducationCard />
       </div>
       <DialogAddEducation
+        editing={false}
         ref={refEducation}
         closeModal={() => {
           refEducation.current && refEducation.current.showDialog();

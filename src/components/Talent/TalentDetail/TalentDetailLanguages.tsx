@@ -4,13 +4,13 @@ import CustomRating from "@/components/common/CustomRating";
 import DialogLanguage from "@/components/dialogs/DialogLanguage";
 import { IRootState } from "@/store";
 import { AddIcon, EditIcon } from "@/utils/icons";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 type LanguageCardProps = {
   // id: number;
 };
-const LanguageCard: React.FC<LanguageCardProps> = ({  }) => {
+const LanguageCard: React.FC<LanguageCardProps> = ({}) => {
   const refLangauge = useRef<RefObject>(null);
   const talentData = useSelector((root: IRootState) => root.talent);
   // const [language, setLanguage] = useState<Language | undefined>(() =>
@@ -33,7 +33,8 @@ const LanguageCard: React.FC<LanguageCardProps> = ({  }) => {
           >
             <button
               onClick={() => {
-                refLangauge.current?.showDialog()}}
+                refLangauge.current?.showDialog();
+              }}
               type="button"
             >
               <EditIcon className="fill-gray-500 text-2xl" />
@@ -43,6 +44,7 @@ const LanguageCard: React.FC<LanguageCardProps> = ({  }) => {
       </CardOne>
       <DialogLanguage
         // language={language}
+        editing
         ref={refLangauge}
         closeModal={() => {
           refLangauge.current && refLangauge.current.showDialog();
@@ -71,6 +73,7 @@ const TalentDetailLanguages = () => {
         <LanguageCard />
       </div>
       <DialogLanguage
+        editing={false}
         ref={refLangauge}
         closeModal={() => {
           refLangauge.current && refLangauge.current.showDialog();

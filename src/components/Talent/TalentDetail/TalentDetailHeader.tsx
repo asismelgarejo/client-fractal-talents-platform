@@ -60,7 +60,11 @@ const TalentDetailHeader = () => {
         <div className="flex space-x-2 items-center">
           <h3 className="font-bold text-lg">Juan Lopez Martinez</h3>
           <button type="button" onClick={() => setHeart((prev) => !prev)}>
-            {heart ? <HeartContainedIcon className="text-[20px]" /> : <HeartOutlinedIcon className="text-[20px]"/>}
+            {heart ? (
+              <HeartContainedIcon className="text-[20px]" />
+            ) : (
+              <HeartOutlinedIcon className="text-[20px]" />
+            )}
           </button>
         </div>
         <div className="flex space-x-2 text-sm items-center text-gray-500">
@@ -95,8 +99,9 @@ const TalentDetailHeader = () => {
       <div className=" h-full flex flex-col">
         <div className="flex space-x-6 h-fit">
           <CustomSelect
+            className="min-w-[150px]"
             value="Ver CV"
-            onChange={(item) => {
+            change={(item) => {
               // setSkill(item);
             }}
             border={false}

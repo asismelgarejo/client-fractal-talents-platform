@@ -30,6 +30,7 @@ const CustomSelect: React.FC<CustomSelectProps> = (props) => {
     options,
     value,
     change,
+    className,
   } = props;
 
   const [show, setShow] = useState(false);
@@ -52,10 +53,13 @@ const CustomSelect: React.FC<CustomSelectProps> = (props) => {
         <CustomButton
           onClick={(e) => handleClickInside()}
           variant={variant}
-          className={clsx({
-            ["border-white"]: !border,
-            "w-full justify-between py-2": true,
-          })}
+          className={clsx(
+            {
+              ["border-white"]: !border,
+              "w-full justify-between py-2": true,
+            },
+            className
+          )}
           endIcon={<ArrowIcon style={{ fill: "inherit" }} />}
         >
           {value !== "" ? value : placeholder}

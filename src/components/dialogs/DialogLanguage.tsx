@@ -9,13 +9,15 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { IRootState } from "@/store";
 import { LanguageData } from "@/types/Talent";
+import { DeleteIcon } from "@/utils/icons";
 
 type DialogLanguageProps = {
   closeModal(): void;
+  editing: boolean;
   // languageId: number;
 };
 const DialogLanguage = forwardRef<RefObject, DialogLanguageProps>(
-  ({ closeModal }, ref) => {
+  ({ closeModal, editing }, ref) => {
     const dispatch = useDispatch();
 
     const language = useSelector((root: IRootState) => root.talent);
@@ -43,13 +45,22 @@ const DialogLanguage = forwardRef<RefObject, DialogLanguageProps>(
       <CustomDialog ref={ref}>
         <form action="" onSubmit={handleSubmit(onSubmit)}>
           <CardTwo className="p-[24px] min-w-[400px] space-y-5" rd="md">
-            <div className="text-start">
+            <div className="text-start relative">
               <h2 className="text-lg text-black font-bold">
-                Agrega un nuevo idioma{" "}
+                {!editing
+                  ? "Agrega un nuevo idioma"
+                  : "Edita tu habilidad en el idioma"}
               </h2>
               <p className="text-gray-500 text-sm font-light">
-                Agrega un nuevo idioma aprendido.{" "}
+                {!editing
+                  ? "Agrega un nuevo idioma aprendido."
+                  : "Edita tu habilidad en el idioma"}
               </p>
+              {editing && (
+                <button type="button" className="absolute top-[0] right-0">
+                  <DeleteIcon className="fill-error-500 text-[18px]" />
+                </button>
+              )}
             </div>
             <div className="space-y-3">
               <Controller
@@ -77,7 +88,7 @@ const DialogLanguage = forwardRef<RefObject, DialogLanguageProps>(
                       },
                     ]}
                   />
-                )} 
+                )}
               />
               <Controller
                 name="level"
