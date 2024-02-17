@@ -1,11 +1,13 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./TalentDetail.module.css";
 import clsx from "clsx";
 import Image from "next/image";
 import {
   EditIcon,
   GithubIcon,
+  HeartContainedIcon,
+  HeartOutlinedIcon,
   LinkedInIcon,
   LocationIcon,
   MoneyIcon,
@@ -26,6 +28,9 @@ const TalentDetailHeader = () => {
   const refProfileImage = useRef<RefObject>(null);
   const refSocialNet = useRef<RefObject>(null);
   const talentData = useSelector((root: IRootState) => root.talent);
+
+  const [heart, setHeart] = useState(false);
+
   return (
     <div className={clsx(styles.TalentDetailHeader, "space-x-2 text-black")}>
       <div className="">
@@ -52,7 +57,12 @@ const TalentDetailHeader = () => {
         </div>
       </div>
       <div className="p-4 space-y-1">
-        <h3 className="font-bold text-lg">Juan Lopez Martinez</h3>
+        <div className="flex space-x-2 items-center">
+          <h3 className="font-bold text-lg">Juan Lopez Martinez</h3>
+          <button type="button" onClick={() => setHeart((prev) => !prev)}>
+            {heart ? <HeartContainedIcon className="text-[20px]" /> : <HeartOutlinedIcon className="text-[20px]"/>}
+          </button>
+        </div>
         <div className="flex space-x-2 text-sm items-center text-gray-500">
           <span className="flex space-x-1">Full-stack developer</span>
           <span className="flex space-x-1 items-center">
