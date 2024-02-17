@@ -5,20 +5,13 @@ import { useOnClickOutside } from "usehooks-ts";
 import CardTwo from "./Cards/CardTwo";
 import { MenuItem } from "./MenuItem";
 import CustomButton from "./CustomButton";
-const variants = {
-  outline:
-    "border border-primary-500 text-primary-500 bg-transparent fill-primary-500",
-  contained: "border-tertiary text-white fill-white bg-tertiary",
-};
-type CustomSelectProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<Omit<HTMLElement, "onChange">>,
-  Omit<HTMLElement, "onChange">
-> & {
-  variant?: keyof typeof variants;
+import { ButtonWrapperProps } from "./ButtonWrapper";
+
+type CustomSelectProps = ButtonWrapperProps & {
   label?: string;
   border?: boolean;
   options: MenuItemProps[];
-  onChange(item: MenuItemProps): void;
+  change(item: MenuItemProps): void;
   value: string;
   placeholder?: string;
 };
@@ -36,7 +29,7 @@ const CustomSelect: React.FC<CustomSelectProps> = (props) => {
     placeholder,
     options,
     value,
-    onChange,
+    change,
   } = props;
 
   const [show, setShow] = useState(false);
@@ -80,7 +73,7 @@ const CustomSelect: React.FC<CustomSelectProps> = (props) => {
               key={item.id}
               active={false}
               onClick={() => {
-                onChange(item);
+                change(item);
                 setShow(false);
               }}
               cursor

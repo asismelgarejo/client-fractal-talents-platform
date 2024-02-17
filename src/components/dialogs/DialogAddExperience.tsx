@@ -1,15 +1,17 @@
 /* eslint-disable react/display-name */
-import React, { Ref, forwardRef } from "react";
+import React, { Ref, forwardRef, useState } from "react";
 import CustomDialog, { RefObject } from "@/components/common/CustomDialog";
 import CustomInput from "../common/CustomInput";
 import CustomButton from "../common/CustomButton";
 import CardTwo from "../common/Cards/CardTwo";
+import CustomCheckbox from "../common/CustomCheckbox";
 
 type DialogAddExperienceProps = {
   closeModal(): void;
 };
 const DialogAddExperience = forwardRef<RefObject, DialogAddExperienceProps>(
   ({ closeModal }, ref) => {
+    const [checked, setChecked] = useState(false);
     return (
       <CustomDialog ref={ref}>
         <CardTwo className="p-[24px] min-w-[400px] space-y-5" rd="md">
@@ -26,6 +28,13 @@ const DialogAddExperience = forwardRef<RefObject, DialogAddExperienceProps>(
               label="Empresa"
               placeholder="Nombre de la empresa"
               className="rounded-md"
+            />
+            <CustomCheckbox
+              checked={checked}
+              label="Aquí en FRACTAL"
+              onClick={() => {
+                setChecked(!checked);
+              }}
             />
             <CustomInput
               label="Puesto"
@@ -44,6 +53,13 @@ const DialogAddExperience = forwardRef<RefObject, DialogAddExperienceProps>(
                 className="rounded-md"
               />
             </div>
+            <CustomCheckbox
+              checked={checked}
+              label="Hasta la actualidad"
+              onClick={() => {
+                setChecked(!checked);
+              }}
+            />
           </div>
           <div className="flex grow space-x-5">
             <CustomButton

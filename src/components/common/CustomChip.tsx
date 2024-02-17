@@ -27,7 +27,7 @@ const CustomChip = forwardRef<HTMLSpanElement, CustomChipProps>(
         ref={ref}
         className={clsx(
           variants[color],
-          "rounded-2xl flex space-x-2 inline-block items-center px-4 py-1 font-medium text-sm w-fit",
+          "rounded-2xl flex space-x-2 inline-block items-center px-4 py-1 font-medium text-sm w-fit select-none",
           className
         )}
       >

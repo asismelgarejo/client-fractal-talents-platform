@@ -1,7 +1,6 @@
 /* eslint-disable react/display-name */
 import React, { forwardRef } from "react";
 import CustomDialog, { RefObject } from "@/components/common/CustomDialog";
-import CustomInput from "../common/CustomInput";
 import CustomButton from "../common/CustomButton";
 import CardTwo from "../common/Cards/CardTwo";
 import CustomSelect, { MenuItemProps } from "../common/CustomSelect";
@@ -63,7 +62,8 @@ const DialogLanguage = forwardRef<RefObject, DialogLanguageProps>(
                     value={field.value.name}
                     className="w-full"
                     placeholder="Nombre  del idioma"
-                    onChange={(option: any) => {
+                    variant="gray_2"
+                    change={(option) => {
                       setValue("language", option);
                     }}
                     options={[
@@ -89,7 +89,8 @@ const DialogLanguage = forwardRef<RefObject, DialogLanguageProps>(
                     value={field.value.name}
                     placeholder="Nivel del idioma"
                     className="w-full"
-                    onChange={(option: any) => {
+                    variant="gray_2"
+                    change={(option) => {
                       setValue("language", option);
                     }}
                     options={[]}
