@@ -4,6 +4,7 @@ import CustomInput from "@/components/common/CustomInput";
 import CustomButton from "@/components/common/CustomButton";
 import { AddIcon, EyesIcon } from "@/utils/icons";
 import FloatingMenu from "../common/FloatingMenu";
+import Link from "next/link";
 
 const SKILLS = [
   { id: 1, label: "Docker" },
@@ -57,9 +58,11 @@ const SearchInput = () => {
 const FiltersBar = () => {
   return (
     <div className="flex w-full" style={{ gridArea: "filters" }}>
-      <CustomButton type="button" variant="outline" startIcon={<AddIcon />}>
-        Nuevo Talento
-      </CustomButton>
+      <Link href="/home/nuevo_talento">
+        <CustomButton type="button" variant="outline" startIcon={<AddIcon />}>
+          Nuevo Talento
+        </CustomButton>
+      </Link>
       <div className="flex ml-auto space-x-5">
         <Menus />
         <SearchInput />
