@@ -3,6 +3,7 @@ import CustomButton from "@/components/common/CustomButton";
 import { RefObject } from "@/components/common/CustomDialog";
 import CustomRating from "@/components/common/CustomRating";
 import DialogAddEducation from "@/components/dialogs/DialogAddEducation";
+import DialogFeedback from "@/components/dialogs/DialogFeedback";
 import { AddIcon, PlusIcon } from "@/utils/icons";
 import Image from "next/image";
 import React, { useRef } from "react";
@@ -38,29 +39,27 @@ const FeedbackCard = () => {
 };
 
 const TalentDetailFeedback = () => {
-  const refEducation = useRef<RefObject>(null);
+  const refFeedback = useRef<RefObject>(null);
 
   return (
     <div className="space-y-2 relative">
-      <button
-        type="button"
-        className="absolute right-0 top-0 p-1"
-        onClick={() => refEducation.current?.showDialog()}
-      >
-        <AddIcon className="text-[12px] fill-gray-400" />
-      </button>
       <h2 className="text-gray-500 font-bold text-sm">Feedback</h2>
       <div className="flex  flex-wrap items-center space-y-2">
         <FeedbackCard />
         <FeedbackCard />
-        <CustomButton className="w-full !justify-start" variant="text" startIcon={<PlusIcon />}>
+        <CustomButton
+          className="w-full !justify-start"
+          variant="text"
+          startIcon={<PlusIcon />}
+          onClick={() => refFeedback.current?.showDialog()}
+        >
           Dar nuevo feedback
         </CustomButton>
       </div>
-      <DialogAddEducation
-        ref={refEducation}
+      <DialogFeedback
+        ref={refFeedback}
         closeModal={() => {
-          refEducation.current && refEducation.current.showDialog();
+          refFeedback.current && refFeedback.current.showDialog();
         }}
       />
     </div>

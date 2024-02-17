@@ -2,15 +2,15 @@
 import React, { forwardRef } from "react";
 import InputBase, { InputBaseProps } from "./InputBase";
 
-type CustomInputProps = Omit<InputBaseProps, "children"> & {
+type CustomTextAreaProps =  Omit<InputBaseProps, "children">  & {
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
 } & React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    HTMLTextAreaElement
   >;
 
-const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
+const CustomTextArea = forwardRef<HTMLTextAreaElement, CustomTextAreaProps>(
   (props, ref) => {
     const {
       startIcon,
@@ -30,18 +30,16 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
         errorMsg={errorMsg}
         className={className}
       >
-        {startIcon ? startIcon : null}
-        <input
+        <textarea
           ref={ref}
           {...inputProps}
           className={
             "min-h-[10px] min-w-[100px] w-full px-2 py-2 outline-none bg-transparent"
           }
         />
-        {endIcon ? endIcon : null}
       </InputBase>
     );
   }
 );
 
-export default CustomInput;
+export default CustomTextArea;
