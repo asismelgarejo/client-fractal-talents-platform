@@ -7,10 +7,10 @@ import CustomRating from "../common/CustomRating";
 import CustomInput from "../common/CustomInput";
 import CustomTextArea from "../common/CustomTextArea";
 
-type DialogFeedbackProps = {
+type DialogDescriptionProps = {
   closeModal(): void;
 };
-const DialogFeedback = forwardRef<RefObject, DialogFeedbackProps>(
+const DialogDescription = forwardRef<RefObject, DialogDescriptionProps>(
   ({ closeModal }, ref) => {
     const intpuRef = useRef<HTMLInputElement>(null);
 
@@ -21,14 +21,13 @@ const DialogFeedback = forwardRef<RefObject, DialogFeedbackProps>(
         <CardTwo className="p-[24px] min-w-[350px] w-[470px] space-y-5" rd="md">
           <div className="text-start space-y-4">
             <h2 className="text-lg text-black font-bold">
-              Agrega nuevo feedback
+              Edita tu descripción
             </h2>
             <p className="text-gray-500 text-sm font-light">
-              Añade un puntaje y escribe un comentario.
+              Tiempo de una nueva descripción? Edítala.
             </p>
           </div>
-          <CustomRating />
-          <CustomTextArea label="Feedback" className="rounded-md" rows={3} />
+          <CustomTextArea label="Descripción" className="rounded-md" rows={3} />
           <div className="flex grow space-x-5">
             <CustomButton
               className="w-full"
@@ -45,4 +44,4 @@ const DialogFeedback = forwardRef<RefObject, DialogFeedbackProps>(
   }
 );
 
-export default DialogFeedback;
+export default DialogDescription;
