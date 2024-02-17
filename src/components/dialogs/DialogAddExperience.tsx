@@ -17,7 +17,7 @@ const DialogAddExperience = forwardRef<RefObject, DialogAddExperienceProps>(
             <h2 className="text-lg text-black font-bold">
               Agrega una nueva experiencia
             </h2>
-            <p className="text-gray-400 text-sm font-light">
+            <p className="text-gray-500 text-sm font-light">
               Describe y agrega tu nueva experiencia laboral.
             </p>
           </div>
@@ -48,7 +48,7 @@ const DialogAddExperience = forwardRef<RefObject, DialogAddExperienceProps>(
           <div className="flex grow space-x-5">
             <CustomButton
               className="w-full"
-              variant="outline"
+              variant="gray_1"
               onClick={() => closeModal()}
             >
               Cancelar

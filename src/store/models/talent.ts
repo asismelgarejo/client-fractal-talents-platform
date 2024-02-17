@@ -1,7 +1,7 @@
-import { TalentModel } from "@/types/talent";
+import { Talent } from "@/types/Talent";
 import { createModel } from "@rematch/core";
 
-const INITIAL_STATE: TalentModel = {
+const INITIAL_STATE: Talent = {
   salary: {
     maximum: 3000,
     minimum: 2500,

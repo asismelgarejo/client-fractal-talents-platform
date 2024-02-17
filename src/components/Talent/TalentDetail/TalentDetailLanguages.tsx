@@ -3,9 +3,8 @@ import { RefObject } from "@/components/common/CustomDialog";
 import CustomRating from "@/components/common/CustomRating";
 import DialogLanguage from "@/components/dialogs/DialogLanguage";
 import { IRootState } from "@/store";
-import { Language } from "@/types/talent";
 import { AddIcon, EditIcon } from "@/utils/icons";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 
 type LanguageCardProps = {

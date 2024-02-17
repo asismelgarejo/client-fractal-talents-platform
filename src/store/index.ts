@@ -1,6 +1,6 @@
 import { init } from "@rematch/core";
 import { talentModel } from "./models/talent";
-import { TalentModel } from "@/types/talent";
+import { Talent } from "@/types/Talent";
 
 const store = init({
   name: "talent_pool",
@@ -8,7 +8,6 @@ const store = init({
 });
 
 export default store;
-
 export type IRootState = {
-  talent: TalentModel;
+  talent: Talent;
 };

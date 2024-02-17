@@ -17,7 +17,7 @@ const DialogAddEducation = forwardRef<RefObject, DialogAddEducationProps>(
             <h2 className="text-lg text-black font-bold">
               Agrega una nueva experiencia educativa
             </h2>
-            <p className="text-gray-400 text-sm font-light">
+            <p className="text-gray-500 text-sm font-light">
               Describe y agrega tu nueva experiencia educativa.
             </p>
           </div>
@@ -54,7 +54,7 @@ const DialogAddEducation = forwardRef<RefObject, DialogAddEducationProps>(
           <div className="flex grow space-x-5">
             <CustomButton
               className="w-full"
-              variant="outline"
+              variant="gray_1"
               onClick={() => closeModal()}
             >
               Cancelar

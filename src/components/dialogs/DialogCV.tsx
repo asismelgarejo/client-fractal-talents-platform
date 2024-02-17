@@ -20,7 +20,7 @@ const DialogCV = forwardRef<RefObject, DialogCVProps>(({ closeModal }, ref) => {
           <h2 className="text-lg text-black font-bold">
             Agrega tu Curriculum Vitae
           </h2>
-          <p className="text-gray-400 text-sm font-light">Sube tu nuevo CV.</p>
+          <p className="text-gray-500 text-sm font-light">Sube tu nuevo CV.</p>
         </div>
         <div
           className="border rounded-lg border-gray-300 py-7 cursor-pointer"
@@ -39,7 +39,7 @@ const DialogCV = forwardRef<RefObject, DialogCVProps>(({ closeModal }, ref) => {
         <div className="flex grow space-x-5">
           <CustomButton
             className="w-full"
-            variant="outline"
+            variant="gray_1"
             onClick={() => closeModal()}
           >
             Cancelar

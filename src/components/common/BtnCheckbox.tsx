@@ -13,8 +13,8 @@ const BtnCheckbox = forwardRef<HTMLButtonElement, BtnCheckboxProps>(
     const {
       checked = false,
       children,
-      txtColor,
-      borderColor,
+      variant = "gray_2",
+      className,
       ...btnProps
     } = props;
 
@@ -23,12 +23,10 @@ const BtnCheckbox = forwardRef<HTMLButtonElement, BtnCheckboxProps>(
         {...btnProps}
         ref={ref}
         className={clsx(
-          "justify-between flex inline-block px-5 py-2 text-sm ",
-          btnProps.className ?? "",
-          { ["bg-primary-100"]: checked }
+          "justify-between flex inline-block px-5 py-2 text-sm font-medium",
+          className ?? ""
         )}
-        txtColor={checked ? "primary" : txtColor}
-        borderColor={checked ? "primary" : borderColor}
+        variant={checked ? "outline_2" : variant}
       >
         <span>{children}</span>
         {

@@ -17,7 +17,7 @@ const DialogSocialNetworks = forwardRef<RefObject, DialogSocialNetworksProps>(
             <h2 className="text-lg text-black font-bold">
               Agrega tus medios sociales{" "}
             </h2>
-            <p className="text-gray-400 text-sm font-light">
+            <p className="text-gray-500 text-sm font-light">
               Agrega y muestra tus medios sociales.
             </p>
           </div>
@@ -29,7 +29,7 @@ const DialogSocialNetworks = forwardRef<RefObject, DialogSocialNetworksProps>(
           <div className="flex grow space-x-5">
             <CustomButton
               className="w-full"
-              variant="outline"
+              variant="gray_1"
               onClick={() => closeModal()}
             >
               Cancelar

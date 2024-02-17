@@ -19,7 +19,7 @@ const DialogCertification = forwardRef<RefObject, DialogCertificationProps>(
         <CardTwo className="p-[24px] min-w-[350px] w-[470px] space-y-5" rd="md">
           <div className="text-start space-y-4">
             <h2 className="text-lg text-black font-bold">Agrega un archivo </h2>
-            <p className="text-gray-400 text-sm font-light">
+            <p className="text-gray-500 text-sm font-light">
               Sube tu nuevo certificado, diploma o algún archivo que respalde
               tus aptitudes.
             </p>
@@ -43,7 +43,7 @@ const DialogCertification = forwardRef<RefObject, DialogCertificationProps>(
           <div className="flex grow space-x-5">
             <CustomButton
               className="w-full"
-              variant="outline"
+              variant="gray_1"
               onClick={() => closeModal()}
             >
               Cancelar

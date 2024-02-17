@@ -9,10 +9,20 @@ type CustomButtonProps = ButtonWrapperProps & {
 
 const CustomButton = forwardRef<HTMLButtonElement, CustomButtonProps>(
   (props, ref) => {
-    const { startIcon, endIcon, children, ...defaultProps } = props;
+    const { startIcon, variant = "contained", endIcon, children, ...defaultProps } = props;
 
     return (
-      <ButtonWrapper {...defaultProps} ref={ref}>
+      <ButtonWrapper
+        {...defaultProps}
+        variant={
+          props?.disabled
+            ? variant === "contained"
+              ? "gray_1"
+              : "gray_2"
+            : variant
+        }
+        ref={ref}
+      >
         {startIcon && <span>{startIcon}</span>}
         <span>{children}</span>
         {endIcon && <span>{endIcon}</span>}

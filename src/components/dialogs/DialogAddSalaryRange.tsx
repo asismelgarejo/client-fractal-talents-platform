@@ -6,9 +6,9 @@ import CustomButton from "../common/CustomButton";
 import CardTwo from "../common/Cards/CardTwo";
 import BtnCheckbox from "../common/BtnCheckbox";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { TalentSalary } from "@/types/talent";
 import { useDispatch, useSelector } from "react-redux";
 import { IRootState } from "@/store";
+import { TalentSalary } from "@/types/Talent";
 
 type DialogAddSalaryRangeProps = {
   closeModal(): void;
@@ -40,7 +40,7 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
               <h2 className="text-lg text-black font-bold">
                 Agrega tu banda salarial
               </h2>
-              <p className="text-gray-400 text-sm font-light">
+              <p className="text-gray-500 text-sm font-light">
                 Agrega el rango de tus expectativas salariales.
               </p>
             </div>
@@ -49,13 +49,10 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
                 name="currency"
                 control={control}
                 rules={{ required: "username is required" }}
-                render={({ field, fieldState }) => (
+                render={({}) => (
                   <div className="space-y-3">
                     <BtnCheckbox
                       className="w-full py-4"
-                      variant="outline"
-                      txtColor="gray"
-                      borderColor="gray"
                       onClick={() => {
                         setValue("currency", "PEN");
                       }}
@@ -65,9 +62,6 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
                     </BtnCheckbox>
                     <BtnCheckbox
                       className="w-full py-4"
-                      variant="outline"
-                      txtColor="gray"
-                      borderColor="gray"
                       onClick={() => {
                         setValue("currency", "USD");
                       }}
@@ -112,10 +106,8 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
             <div className="flex grow space-x-3">
               <CustomButton
                 className="w-full"
-                variant="outline"
+                variant="gray_2"
                 onClick={() => closeModal()}
-                txtColor="gray"
-                borderColor="gray"
               >
                 Cancelar
               </CustomButton>

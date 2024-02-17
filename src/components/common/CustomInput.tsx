@@ -23,9 +23,9 @@ const CustomInput = forwardRef<HTMLDivElement, CustomInputProps>(
           className={clsx(
             "rounded-3xl overflow-hidden w-full flex bg-white items-center px-3 border",
             {
-              [inputProps?.className ?? ""]: !!inputProps?.className,
               ["border-gray-300"]: !error,
               ["border-error-200"]: error,
+              [inputProps?.className ?? ""]: !!inputProps?.className,
             }
           )}
         >

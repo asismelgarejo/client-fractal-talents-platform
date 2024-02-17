@@ -96,8 +96,6 @@ const TalentDetailHeader = () => {
         <div className="flex space-x-6 h-fit">
           <CustomSelect
             value="Ver CV"
-            txtColor="primary"
-            fillColor="primary"
             onChange={(item) => {
               // setSkill(item);
             }}

@@ -9,7 +9,7 @@ import CustomRating from "../common/CustomRating";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { IRootState } from "@/store";
-import { LanguageData } from "@/types/talent";
+import { LanguageData } from "@/types/Talent";
 
 type DialogLanguageProps = {
   closeModal(): void;
@@ -48,7 +48,7 @@ const DialogLanguage = forwardRef<RefObject, DialogLanguageProps>(
               <h2 className="text-lg text-black font-bold">
                 Agrega un nuevo idioma{" "}
               </h2>
-              <p className="text-gray-400 text-sm font-light">
+              <p className="text-gray-500 text-sm font-light">
                 Agrega un nuevo idioma aprendido.{" "}
               </p>
             </div>
@@ -103,7 +103,7 @@ const DialogLanguage = forwardRef<RefObject, DialogLanguageProps>(
             <div className="flex grow space-x-5">
               <CustomButton
                 className="w-full"
-                variant="outline"
+                variant="gray_1"
                 onClick={() => closeModal()}
               >
                 Cancelar

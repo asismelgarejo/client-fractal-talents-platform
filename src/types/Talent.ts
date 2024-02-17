@@ -19,7 +19,7 @@ export type LanguageData = {
   level: Level;
 };
 
-export type TalentModel = {
+export type Talent = {
   salary: TalentSalary;
   languages: LanguageData[];
 };

@@ -5,7 +5,6 @@ import { useOnClickOutside } from "usehooks-ts";
 import CardTwo from "./Cards/CardTwo";
 import { MenuItem } from "./MenuItem";
 import CustomButton from "./CustomButton";
-import { CustomStyles } from "./ButtonWrapper";
 const variants = {
   outline:
     "border border-primary-500 text-primary-500 bg-transparent fill-primary-500",
@@ -22,7 +21,7 @@ type CustomSelectProps = React.DetailedHTMLProps<
   onChange(item: MenuItemProps): void;
   value: string;
   placeholder?: string;
-} & CustomStyles;
+};
 
 export type MenuItemProps = {
   name: string;
@@ -38,9 +37,6 @@ const CustomSelect: React.FC<CustomSelectProps> = (props) => {
     options,
     value,
     onChange,
-    borderColor,
-    txtColor,
-    fillColor,
   } = props;
 
   const [show, setShow] = useState(false);
@@ -64,12 +60,9 @@ const CustomSelect: React.FC<CustomSelectProps> = (props) => {
           onClick={(e) => handleClickInside()}
           variant={variant}
           className={clsx({
-            ["!border-white"]: !border,
+            ["border-white"]: !border,
             "w-full justify-between py-2": true,
           })}
-          borderColor={borderColor ?? "gray"}
-          txtColor={txtColor ?? "gray"}
-          fillColor={fillColor ?? "gray"}
           endIcon={<ArrowIcon style={{ fill: "inherit" }} />}
         >
           {value !== "" ? value : placeholder}
