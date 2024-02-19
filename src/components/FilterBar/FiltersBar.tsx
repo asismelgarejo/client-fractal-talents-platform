@@ -5,11 +5,12 @@ import CustomButton from "@/components/common/CustomButton";
 import { AddIcon, EyesIcon } from "@/utils/icons";
 import FloatingMenu from "../common/FloatingMenu";
 import Link from "next/link";
+import { MenuItemProps } from "../common/FloatingMenu";
 
 const SKILLS = [
   { id: 1, label: "Docker" },
-  { id: 2, label: "JS" },
-  { id: 3, label: "Avanzado" },
+  { id: 2, label: "Data Structure" },
+  { id: 3, label: "Nginx" },
 ];
 const ENGLISH_LEVEL = [
   { id: 1, label: "Básico" },
@@ -18,23 +19,37 @@ const ENGLISH_LEVEL = [
 ];
 
 const Menus = () => {
-  const [skill, setSkill] = useState<any>(null);
+  const [skills, setSkills] = useState<MenuItemProps[]>([]);
+  const [englishLevel, setEnglishLevel] = useState<MenuItemProps | null>(null);
+  const [favorite, setFavorite] = useState<MenuItemProps | null>(null);
 
   return (
     <div className="flex space-x-4">
       <FloatingMenu
-        onChange={(item) => {
-          setSkill(item);
+        onChange={(items) => {
+          setSkills(items as MenuItemProps[]);
         }}
-        label={skill?.label ?? "Habilidades"}
+        multiple
+        value={skills}
+        label={"Habilidades"}
         items={SKILLS}
       />
       <FloatingMenu
-        onChange={() => {}}
+        onChange={(item) => {
+          setEnglishLevel(item as MenuItemProps);
+        }}
         label="Nivel de inglés"
         items={ENGLISH_LEVEL}
+        value={englishLevel}
       />
-      <FloatingMenu onChange={() => {}} label="Favoritos" items={[]} />
+      <FloatingMenu
+        label="Favoritos"
+        items={[]}
+        onChange={(item) => {
+          setFavorite(item as MenuItemProps);
+        }}
+        value={favorite}
+      />
     </div>
   );
 };

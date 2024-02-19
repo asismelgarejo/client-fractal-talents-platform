@@ -15,11 +15,19 @@ type CustomChipProps = React.DetailedHTMLProps<
   startIcon?: React.ReactNode;
   color?: keyof typeof variants;
   label: string;
+  endIcon?: React.ReactNode;
 };
 
 const CustomChip = forwardRef<HTMLSpanElement, CustomChipProps>(
   (props, ref) => {
-    const { startIcon, label, color = "primary", className, ...rest } = props;
+    const {
+      startIcon,
+      endIcon,
+      label,
+      color = "primary",
+      className,
+      ...rest
+    } = props;
 
     return (
       <span
@@ -31,8 +39,9 @@ const CustomChip = forwardRef<HTMLSpanElement, CustomChipProps>(
           className
         )}
       >
-        {startIcon && <span>{startIcon}</span>}
+        {startIcon && <>{startIcon}</>}
         <span>{label}</span>
+        {endIcon && <>{endIcon}</>}
       </span>
     );
   }
