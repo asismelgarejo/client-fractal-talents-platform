@@ -20,7 +20,7 @@ export const signinService = async (
 export const logoutService = async (): Promise<void> => {
   try {
   } catch (error) {
-    console.log(">AuthService > signin", error);
+    console.log(">AuthService > logoutService", error);
     throw error;
   }
 };

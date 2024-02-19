@@ -16,14 +16,14 @@ const DialogCV = forwardRef<RefObject, DialogCVProps>(({ closeModal }, ref) => {
     <CustomDialog ref={ref}>
       <input style={{ display: "none" }} ref={intpuRef} type="file" />
 
-      <CardTwo className="p-[24px] min-w-[400px] space-y-5" rd="md">
+      <CardTwo className="p-[24px] min-w-[400px] space-y-5 rounded-xl" >
         <div className="text-start">
           <h2 className="text-lg text-black font-bold">
             Agrega tu Curriculum Vitae
           </h2>
           <p className="text-gray-500 text-sm font-light">Sube tu nuevo CV.</p>
         </div>
-        <UploadFile description="PDF (max. 250 mb)" title="Sube tu CV" />
+        <UploadFile description="PDF (max. 250 mb)" title="Sube tu CV"/>
         <div className="flex grow space-x-5">
           <CustomButton
             className="w-full"

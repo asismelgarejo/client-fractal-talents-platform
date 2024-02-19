@@ -16,7 +16,7 @@ const DialogAddExperience = forwardRef<RefObject, DialogAddExperienceProps>(
     const [checked, setChecked] = useState(false);
     return (
       <CustomDialog ref={ref}>
-        <CardTwo className="p-[24px] min-w-[400px] space-y-5" rd="md">
+        <CardTwo className="p-[24px] min-w-[400px] space-y-5">
           <div className="text-start relative">
             <h2 className="text-lg text-black font-bold">
               {!editing

@@ -35,7 +35,7 @@ const DialogAddSalaryRange = forwardRef<RefObject, DialogAddSalaryRangeProps>(
     return (
       <CustomDialog ref={ref}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <CardTwo className="p-[24px] min-w-[400px] space-y-5" rd="md">
+          <CardTwo className="p-[24px] min-w-[400px] space-y-5 rounded-xl">
             <div className="text-start">
               <h2 className="text-lg text-black font-bold">
                 Agrega tu banda salarial

@@ -12,7 +12,9 @@ export const getAxiosInstance = async (): Promise<AxiosInstance> => {
   const http = axios.create({ baseURL: process.env.BACKEND_SERVICE });
   http.interceptors.request.use((config: InternalAxiosRequestConfig<any>) => {
     const access_token = cookies().get("auth");
-    config.headers["Authorization"] = `Bearer ${access_token}`;
+    config.headers["Authorization"] = `Bearer ${access_token?.value??""}`;
+    console.log("asdasdasd>>", config.headers["Authorization"]);
+    
     return config;
   });
   http.interceptors.response.use(
@@ -20,6 +22,7 @@ export const getAxiosInstance = async (): Promise<AxiosInstance> => {
       return response;
     },
     (error: AxiosError<ErrorResponse>) => {
+      if(error.message)throw error.message;
       if (error.response) throw error.response.data.message;
       throw error;
     }

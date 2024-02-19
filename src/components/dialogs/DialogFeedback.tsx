@@ -18,7 +18,7 @@ const DialogFeedback = forwardRef<RefObject, DialogFeedbackProps>(
       <CustomDialog ref={ref}>
         <input style={{ display: "none" }} ref={intpuRef} type="file" />
 
-        <CardTwo className="p-[24px] min-w-[350px] w-[470px] space-y-5" rd="md">
+        <CardTwo className="p-[24px] min-w-[350px] w-[470px] space-y-5 rounded-xl">
           <div className="text-start space-y-4">
             <h2 className="text-lg text-black font-bold">
               Agrega nuevo feedback

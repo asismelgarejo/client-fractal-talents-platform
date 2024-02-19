@@ -27,9 +27,13 @@ const TalentDetailHeader = () => {
   const refMoney = useRef<RefObject>(null);
   const refProfileImage = useRef<RefObject>(null);
   const refSocialNet = useRef<RefObject>(null);
-  const talentData = useSelector((root: IRootState) => root.talent);
+  const { talent: talentData, user: userData } = useSelector(
+    (root: IRootState) => root
+  );
 
   const [heart, setHeart] = useState(false);
+  // const [userAvatarSrc, setUserAvatarSrc] = useState("https://asml-golang-and-s3.s3.sa-east-1.amazonaws.com/ellie2.jpg");
+  const [userAvatarSrc, setUserAvatarSrc] = useState("/assets/user1.jpg");
 
   return (
     <div className={clsx(styles.TalentDetailHeader, "space-x-2 text-black")}>
@@ -37,10 +41,14 @@ const TalentDetailHeader = () => {
         <div className="relative">
           <div className="rounded rounded-full overflow-hidden">
             <Image
-              src={"/assets/user1.jpg"}
               alt="talent photo"
               width={96}
               height={96}
+              src={userAvatarSrc}
+              placeholder="blur"
+              draggable={false}
+              blurDataURL="/assets/fallback_avatar.jpg"
+              onError={(e) => setUserAvatarSrc("/assets/fallback_avatar.jpg")}
             />
           </div>
           <div className="absolute right-0 bottom-0">
@@ -79,15 +87,17 @@ const TalentDetailHeader = () => {
               {talentData.salary.minimum}-{talentData.salary.maximum}
             </span>
           </span>
-          <button
-            className="p-1 rounded-full"
-            type="button"
-            onClick={() => {
-              refMoney.current && refMoney.current.showDialog();
-            }}
-          >
-            <EditIcon className="fill-gray-500 text-xl" />
-          </button>
+          {userData && (
+            <button
+              className="p-1 rounded-full"
+              type="button"
+              onClick={() => {
+                refMoney.current && refMoney.current.showDialog();
+              }}
+            >
+              <EditIcon className="fill-gray-500 text-xl" />
+            </button>
+          )}
         </div>
         <div className="flex space-x-2 text-gray-500 items-center">
           <CustomRating />

@@ -3,22 +3,18 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const isLogged = request.cookies.get("auth");
-  console.log("isLogged", isLogged);
-
-  if (!isLogged) {
-    if (request.nextUrl.pathname.startsWith("/login")) {
-      return NextResponse.next();
-    }
-    return NextResponse.redirect(new URL("/login", request.url));
+  if (isLogged) {
+    if (request.nextUrl.pathname.startsWith("/login"))
+      return NextResponse.redirect(new URL("/home", request.url));
   } else {
-    if (request.nextUrl.pathname.startsWith("/home")) {
-      return NextResponse.next();
+    if (request.nextUrl.pathname.startsWith("/home/nuevo_talento")) {
+      return NextResponse.redirect(new URL("/home", request.url));
     }
-    return NextResponse.redirect(new URL("/home", request.url));
   }
-  // return NextResponse.next();
+
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/home", "/login"],
+  matcher: ["/home", "/login", "/home/nuevo_talento"],
 };

@@ -18,8 +18,9 @@ export const logout = async (): Promise<void> => {
     await logoutService();
     const cookie = cookies();
     cookie.delete("auth");
+    console.log(">>cookkie", cookie.get("auth"));
   } catch (err) {
-    console.log(">AuthRepository > signin", err);
+    console.log(">AuthRepository > logout", err);
     throw err;
   }
 };

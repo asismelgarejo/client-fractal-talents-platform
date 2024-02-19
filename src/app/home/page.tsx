@@ -1,25 +1,19 @@
-import clsx from "clsx";
+"use server";
 import React from "react";
-import styles from "./home.module.css";
-import TalentDetail from "@/components/Talent/TalentDetail/TalentDetail";
-import FiltersBar from "@/components/FilterBar/FiltersBar";
-import TalentsResults from "@/components/Talent/TalentsResults/TalentsResults";
+import { getUserProfileRepo } from "@/http/repositories/user.repository";
+import MainPage from "./MainPage";
+import { cookies } from "next/headers";
 
-const page = () => {
-  return (
-    <div
-      className={clsx("max-w-screen-2xl w-full m-auto py-5 px-10  grow flex")}
-      style={{
-        height: "calc(100vh - 91px)",
-      }}
-    >
-      <div className={clsx(styles.Container, "")}>
-        <FiltersBar />
-        <TalentsResults />
-        <TalentDetail />
-      </div>
-    </div>
-  );
+const page = async () => {
+  const cookie = cookies();
+  const auth = cookie.get("auth");
+
+  console.log("auth", auth);
+  if (!auth?.value) return <MainPage />;
+
+
+  const userProfileData = await getUserProfileRepo();
+  return <MainPage userProfile={userProfileData} />;
 };
 
 export default page;

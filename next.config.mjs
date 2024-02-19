@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
-    swcMinify: true,
+  images: {
+    domains: ["asml-golang-and-s3.s3.sa-east-1.amazonaws.com"],
+  },
+  reactStrictMode: true,
+  swcMinify: true,
   webpack: (
     config,
     { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }

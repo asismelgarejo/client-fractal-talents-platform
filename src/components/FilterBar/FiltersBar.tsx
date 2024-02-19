@@ -11,11 +11,19 @@ const SKILLS = [
   { id: 1, label: "Docker" },
   { id: 2, label: "Data Structure" },
   { id: 3, label: "Nginx" },
+  { id: 4, label: "Express" },
+  { id: 5, label: "Github" },
+  { id: 6, label: "Golang" },
+  { id: 7, label: "Nest.js" },
 ];
 const ENGLISH_LEVEL = [
   { id: 1, label: "Básico" },
   { id: 2, label: "Intermedio" },
   { id: 3, label: "Avanzado" },
+];
+const FAVORITES = [
+  { id: 1, label: "Mis favaritos" },
+  { id: 2, label: "Backups" },
 ];
 
 const Menus = () => {
@@ -44,7 +52,7 @@ const Menus = () => {
       />
       <FloatingMenu
         label="Favoritos"
-        items={[]}
+        items={FAVORITES}
         onChange={(item) => {
           setFavorite(item as MenuItemProps);
         }}

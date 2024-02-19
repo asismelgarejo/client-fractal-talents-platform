@@ -78,16 +78,16 @@ const FloatingMenu: React.FC<FloatingMenuProps> = ({
         }
       />
       {show && (
-        <div className="absolute z-[100] left-0 ">
+        <div className="absolute z-[100] left-0 w-fit">
           {showCounter() && multiple && value instanceof Array && (
             <CardTwo
               className={clsx(
-                "px-4 py-2 border rounded-lg flex space-x-1 space-y-1 flex-wrap grow",
+                "px-4 py-2 border rounded-lg flex space-x-1 space-y-1 grow flex-wrap overflow-y-scroll w-auto",
                 {
-                  ["w-[200px]"]: true,
+                  ["min-w-[200px]"]: true,
                   ["max-w-[720px]"]: true,
                   ["min-h-[30px]"]: true,
-                  ["max-h-[200px]"]: true,
+                  ["max-h-[150px]"]: true,
                 }
               )}
             >
@@ -111,11 +111,11 @@ const FloatingMenu: React.FC<FloatingMenuProps> = ({
           )}
 
           <CardTwo
-            className={clsx("px-0 py-1 border rounded-lg", {
+            className={clsx("px-0 py-1 border rounded-lg overflow-y-scroll", {
               ["min-w-[200px]"]: true,
               ["max-w-[320px]"]: true,
               ["min-h-[30px]"]: true,
-              ["max-h-[320px]"]: true,
+              ["max-h-[220px]"]: true,
             })}
           >
             {items.length === 0 && (

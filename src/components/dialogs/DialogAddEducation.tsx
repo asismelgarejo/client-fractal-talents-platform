@@ -14,7 +14,7 @@ const DialogAddEducation = forwardRef<RefObject, DialogAddEducationProps>(
   ({ closeModal, editing }, ref) => {
     return (
       <CustomDialog ref={ref}>
-        <CardTwo className="p-[24px] min-w-[400px] space-y-5 h-fit" rd="md">
+        <CardTwo className="p-[24px] min-w-[400px] space-y-5 h-fit rounded-xl">
           <div className="text-start relative">
             <h2 className="text-lg text-black font-bold">
               {!editing

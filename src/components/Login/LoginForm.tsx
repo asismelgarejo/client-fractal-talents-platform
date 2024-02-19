@@ -26,6 +26,7 @@ const LoginForm = () => {
     try {
       setLoading(true);
       await signinRepo(data);
+
       router.push("/home");
     } catch (error: any) {
       console.log(">onSubmit", error);
@@ -100,7 +101,9 @@ const LoginForm = () => {
                       {inputType === "password" ? (
                         <EyeIcon className={"fill-gray-400 text-[18.4px]"} />
                       ) : (
-                        <EyeCrossedIcon className={"stroke-gray-400 text-[18.4px]"}/>
+                        <EyeCrossedIcon
+                          className={"stroke-gray-400 text-[18.4px]"}
+                        />
                       )}
                     </button>
                   }

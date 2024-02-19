@@ -44,7 +44,7 @@ const DialogLanguage = forwardRef<RefObject, DialogLanguageProps>(
     return (
       <CustomDialog ref={ref}>
         <form action="" onSubmit={handleSubmit(onSubmit)}>
-          <CardTwo className="p-[24px] min-w-[400px] space-y-5" rd="md">
+          <CardTwo className="p-[24px] min-w-[400px] space-y-5 rounded-xl">
             <div className="text-start relative">
               <h2 className="text-lg text-black font-bold">
                 {!editing

@@ -2,6 +2,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import store from "@/store";
+import MainHeader from "@/components/common/MainHeader/MainHeader";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -9,7 +10,10 @@ type LayoutProps = {
 const template: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <Provider store={store}>{children} </Provider>
+      <Provider store={store}>
+        <MainHeader />
+        {children}
+      </Provider>
     </>
   );
 };

@@ -13,7 +13,7 @@ const DialogCertification = forwardRef<RefObject, DialogCertificationProps>(
   ({ closeModal }, ref) => {
     return (
       <CustomDialog ref={ref}>
-        <CardTwo className="p-[24px] min-w-[350px] w-[470px] space-y-5" rd="md">
+        <CardTwo className="p-[24px] min-w-[350px] w-[470px] space-y-5 rounded-xl">
           <div className="text-start space-y-4">
             <h2 className="text-lg text-black font-bold">Agrega un archivo </h2>
             <p className="text-gray-500 text-sm font-light">

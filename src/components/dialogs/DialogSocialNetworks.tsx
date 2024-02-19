@@ -12,7 +12,7 @@ const DialogSocialNetworks = forwardRef<RefObject, DialogSocialNetworksProps>(
   ({ closeModal }, ref) => {
     return (
       <CustomDialog ref={ref}>
-        <CardTwo className="p-[24px] min-w-[400px] space-y-5" rd="md">
+        <CardTwo className="p-[24px] min-w-[400px] space-y-5 rounded-xl">
           <div className="text-start">
             <h2 className="text-lg text-black font-bold">
               Agrega tus medios sociales{" "}
