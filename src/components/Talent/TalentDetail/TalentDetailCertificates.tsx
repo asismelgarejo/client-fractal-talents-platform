@@ -1,9 +1,11 @@
 import CardOne from "@/components/common/Cards/CardOne";
 import { RefObject } from "@/components/common/CustomDialog";
 import DialogCertification from "@/components/dialogs/DialogCertification";
+import { IRootState } from "@/store";
 import { UploadIcon } from "@/utils/icons";
 import Image from "next/image";
 import { useRef } from "react";
+import { useSelector } from "react-redux";
 
 const TalentDetailCertificateCardUpload = () => {
   const refFile = useRef<RefObject>(null);
@@ -34,15 +36,27 @@ const TalentDetailCertificateCardUpload = () => {
 };
 
 const TalentDetailCertificates = () => {
+  const talentData = useSelector((root: IRootState) => root.talent);
+
   return (
     <section className="space-x-4 flex">
-      <TalentDetailCertificateCard />
-      <TalentDetailCertificateCard />
+      {talentData.certificates.map((certificate) => (
+        <TalentDetailCertificateCard
+          key={certificate.id}
+          title={certificate.name}
+        />
+      ))}
       <TalentDetailCertificateCardUpload />
     </section>
   );
 };
-const TalentDetailCertificateCard = () => {
+
+type TalentDetailCertificateCardProps = {
+  title: string;
+};
+const TalentDetailCertificateCard: React.FC<
+  TalentDetailCertificateCardProps
+> = ({ title }) => {
   return (
     <CardOne>
       <div className="space-y-2">
@@ -56,7 +70,7 @@ const TalentDetailCertificateCard = () => {
           />
         </div>
         <div className="text-gray-500">
-          <h4 className="text-sm">Certificado en Frontend</h4>
+          <h4 className="text-sm">{title}</h4>
           <span className=" text-xs">PDF</span>
         </div>
       </div>

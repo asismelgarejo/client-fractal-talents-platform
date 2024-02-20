@@ -5,34 +5,52 @@ import DialogConfirmation from "@/components/dialogs/DialogConfirmation";
 import { IRootState } from "@/store";
 import { AddIcon, EditIcon } from "@/utils/icons";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
-const ExperienceCard = () => {
+type ExperienceCardProps = {
+  companyLogo: string;
+  companyName: string;
+  experienceName: string;
+};
+const ExperienceCard: React.FC<ExperienceCardProps> = ({
+  companyLogo,
+  companyName,
+  experienceName,
+}) => {
   const refExperience = useRef<RefObject>(null);
   const refConfirmation = useRef<RefObject>(null);
-  const userData = useSelector((root: IRootState) => root.user);
+  const { user: userData, talent: talentData } = useSelector(
+    (root: IRootState) => root
+  );
+  const [logoUrl, setLogoUrl] = useState(companyLogo);
 
   return (
     <>
       <CardOne className="py-4">
         <div className="flex space-x-2">
-          <Image
-            src="/assets/fractal_co.png"
-            alt="fractal"
-            width={48}
-            height={48}
-            style={
-              {
-                // width: "auto",
-                // height: "auto",
+          <div className="rounded rounded-full overflow-hidden">
+            <Image
+              src={logoUrl}
+              placeholder="blur"
+              draggable={false}
+              blurDataURL="/assets/edificio.png"
+              onError={(e) => setLogoUrl("/assets/edificio.png")}
+              alt="fractal"
+              width={48}
+              height={48}
+              style={
+                {
+                  // width: "auto",
+                  // height: "auto",
+                }
               }
-            }
-          />
+            />
+          </div>
           <div>
-            <h4 className="text-black font-bold">FRACTAL</h4>
+            <h4 className="text-black font-bold">{companyName}</h4>
             <p className="text-sm text-gray-500 space-x-2">
-              <span>Desarrollador Full-Stack</span>
+              <span>{experienceName}</span>
               <span>2015 - 2021</span>
               <span>6 años</span>
             </p>
@@ -80,7 +98,9 @@ const ExperienceCard = () => {
 
 const TalentDetailExperience = () => {
   const refExperience = useRef<RefObject>(null);
-
+  const { user: userData, talent: talentData } = useSelector(
+    (root: IRootState) => root
+  );
   return (
     <div className="space-y-2 relative">
       <button
@@ -92,7 +112,14 @@ const TalentDetailExperience = () => {
       </button>
       <h2 className="text-gray-500 font-bold text-sm">Experiencia</h2>
       <div className="flex space-x-1 flex-wrap items-center gap-2">
-        <ExperienceCard />
+        {talentData.experiences.map((experience) => (
+          <ExperienceCard
+            key={experience.id}
+            companyLogo={experience.company.logoUrl}
+            companyName={experience.company.name}
+            experienceName={experience.name}
+          />
+        ))}
       </div>
       <DialogAddExperience
         editing={false}

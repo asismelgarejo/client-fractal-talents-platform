@@ -7,14 +7,13 @@ import { useSelector } from "react-redux";
 
 const TalentDetailDescription = () => {
   const refDescription = useRef<RefObject>(null);
-  const userData = useSelector((root: IRootState) => root.user);
-
+  const { user: userData, talent: talentData } = useSelector(
+    (root: IRootState) => root
+  );
   return (
     <div className="relative">
       <p className="text-sm">
-        Hello! This is Juan Lopez speaking, I`&apos;`m a Full-Stack Developer
-        specializing in Front-End Technologies and also a student at Holberton
-        School.
+        {talentData.description}
         {userData && (
           <button
             className="p-1 rounded-full  b-0"

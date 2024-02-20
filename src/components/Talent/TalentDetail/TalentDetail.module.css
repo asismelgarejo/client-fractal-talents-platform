@@ -6,7 +6,28 @@
 
 .TalentDetailHeader {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns:
+    "profile header inputs"
+    "profile subheader subheader"
+    "profile rating socialnetworks";
   align-content: center;
   align-items: center;
+}
+.TalentProfile{
+  grid-area: profile;
+}
+.TalentHeader{
+  grid-area: header;
+}
+.TalentSubheader{
+  grid-area: subheader;
+}
+.TalentInputs{
+  grid-area: inputs;
+}
+.TalentRating{
+  grid-area: rating;
+}
+.TalentSocialNetworks{
+  grid-area: socialnetworks;
 }

@@ -11,7 +11,9 @@ import { IRootState } from "@/store";
 
 const TechnicalSkills = () => {
   const refSkill = useRef<RefObject>(null);
-  const userData = useSelector((root: IRootState) => root.user);
+  const { user: userData, talent: talentData } = useSelector(
+    (root: IRootState) => root
+  );
 
   return (
     <div className="space-y-2 relative">
@@ -26,11 +28,9 @@ const TechnicalSkills = () => {
       )}
       <h2 className="text-gray-500 font-bold text-sm">Habilidades Técnicas</h2>
       <div className="flex space-x-1 flex-wrap items-center gap-2">
-        <CustomChip label="Data Structure" />
-        <CustomChip label="Docker" />
-        <CustomChip label="Express" />
-        <CustomChip label="Github" />
-        <CustomChip label="JavaScript" />
+        {talentData.technicalSkills.map((skill) => (
+          <CustomChip key={skill.id} color="primary" label={skill.name} />
+        ))}
       </div>
       <DialogAddTechnicalSkill
         ref={refSkill}
@@ -42,7 +42,9 @@ const TechnicalSkills = () => {
   );
 };
 const SoftSkills = () => {
-  const userData = useSelector((root: IRootState) => root.user);
+  const { user: userData, talent: talentData } = useSelector(
+    (root: IRootState) => root
+  );
   const refSkill = useRef<RefObject>(null);
   return (
     <div className="space-y-2 relative">
@@ -58,9 +60,9 @@ const SoftSkills = () => {
       <h2 className="text-gray-500 font-bold text-sm">Habilidades Blandas</h2>
 
       <div className="flex space-x-1 flex-wrap items-center gap-2">
-        <CustomChip color="secondary" label="Comunicación" />
-        <CustomChip color="secondary" label="Auto aprendizaje" />
-        <CustomChip color="secondary" label="Empatía" />
+        {talentData.softSkills.map((skill) => (
+          <CustomChip key={skill.id} color="secondary" label={skill.name} />
+        ))}
       </div>
       <DialogAddSoftSkill
         ref={refSkill}
