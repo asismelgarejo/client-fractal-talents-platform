@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["asml-golang-and-s3.s3.sa-east-1.amazonaws.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "asml-golang-and-s3.s3.sa-east-1.amazonaws.com",
+      },
+    ],
   },
   reactStrictMode: true,
   swcMinify: true,

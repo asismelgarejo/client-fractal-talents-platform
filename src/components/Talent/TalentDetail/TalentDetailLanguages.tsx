@@ -12,7 +12,10 @@ type LanguageCardProps = {
 };
 const LanguageCard: React.FC<LanguageCardProps> = ({}) => {
   const refLangauge = useRef<RefObject>(null);
-  const talentData = useSelector((root: IRootState) => root.talent);
+  const { talent: talentData, user: userData } = useSelector(
+    (root: IRootState) => root
+  );
+
   // const [language, setLanguage] = useState<Language | undefined>(() =>
   //   talentData.languages.find((language) => language.id === id)
   // );
@@ -27,19 +30,21 @@ const LanguageCard: React.FC<LanguageCardProps> = ({}) => {
           <div className="flex items-center w-fit">
             <CustomRating />
           </div>
-          <div
-            className="flex items-center ml-auto"
-            style={{ marginLeft: "auto" }}
-          >
-            <button
-              onClick={() => {
-                refLangauge.current?.showDialog();
-              }}
-              type="button"
+          {userData && (
+            <div
+              className="flex items-center ml-auto"
+              style={{ marginLeft: "auto" }}
             >
-              <EditIcon className="fill-gray-500 text-2xl" />
-            </button>
-          </div>
+              <button
+                onClick={() => {
+                  refLangauge.current?.showDialog();
+                }}
+                type="button"
+              >
+                <EditIcon className="fill-gray-500 text-2xl" />
+              </button>
+            </div>
+          )}
         </div>
       </CardOne>
       <DialogLanguage

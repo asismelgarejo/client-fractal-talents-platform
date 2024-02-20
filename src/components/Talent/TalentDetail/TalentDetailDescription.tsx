@@ -1,10 +1,13 @@
 import { RefObject } from "@/components/common/CustomDialog";
 import DialogDescription from "@/components/dialogs/DialogDescription";
+import { IRootState } from "@/store";
 import { EditIcon } from "@/utils/icons";
 import React, { useRef } from "react";
+import { useSelector } from "react-redux";
 
 const TalentDetailDescription = () => {
   const refDescription = useRef<RefObject>(null);
+  const userData = useSelector((root: IRootState) => root.user);
 
   return (
     <div className="relative">
@@ -12,13 +15,15 @@ const TalentDetailDescription = () => {
         Hello! This is Juan Lopez speaking, I`&apos;`m a Full-Stack Developer
         specializing in Front-End Technologies and also a student at Holberton
         School.
-        <button
-          className="p-1 rounded-full  b-0"
-          type="button"
-          onClick={() => refDescription.current?.showDialog()}
-        >
-          <EditIcon className="fill-gray-500 text-md" />
-        </button>
+        {userData && (
+          <button
+            className="p-1 rounded-full  b-0"
+            type="button"
+            onClick={() => refDescription.current?.showDialog()}
+          >
+            <EditIcon className="fill-gray-500 text-md" />
+          </button>
+        )}
       </p>
       <DialogDescription
         ref={refDescription}

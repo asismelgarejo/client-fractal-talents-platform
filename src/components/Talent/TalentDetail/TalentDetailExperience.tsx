@@ -1,12 +1,15 @@
 import CardOne from "@/components/common/Cards/CardOne";
 import { RefObject } from "@/components/common/CustomDialog";
 import DialogAddExperience from "@/components/dialogs/DialogAddExperience";
+import { IRootState } from "@/store";
 import { AddIcon, EditIcon } from "@/utils/icons";
 import Image from "next/image";
 import React, { useRef } from "react";
+import { useSelector } from "react-redux";
 
 const ExperienceCard = () => {
   const refExperience = useRef<RefObject>(null);
+  const userData = useSelector((root: IRootState) => root.user);
 
   return (
     <>
@@ -32,19 +35,21 @@ const ExperienceCard = () => {
               <span>6 años</span>
             </p>
           </div>
-          <div
-            className="flex items-center ml-auto"
-            style={{ marginLeft: "auto" }}
-          >
-            <button
-              onClick={() => {
-                refExperience.current?.showDialog();
-              }}
-              type="button"
+          {userData && (
+            <div
+              className="flex items-center ml-auto"
+              style={{ marginLeft: "auto" }}
             >
-              <EditIcon className="fill-gray-500 text-2xl" />
-            </button>
-          </div>
+              <button
+                onClick={() => {
+                  refExperience.current?.showDialog();
+                }}
+                type="button"
+              >
+                <EditIcon className="fill-gray-500 text-2xl" />
+              </button>
+            </div>
+          )}
         </div>
       </CardOne>
       <DialogAddExperience

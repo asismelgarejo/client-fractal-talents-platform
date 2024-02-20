@@ -6,19 +6,24 @@ import { AddIcon } from "@/utils/icons";
 import DialogAddTechnicalSkill from "@/components/dialogs/DialogAddTechnicalSkill";
 import { RefObject } from "@/components/common/CustomDialog";
 import DialogAddSoftSkill from "@/components/dialogs/DialogAddSoftSkill";
+import { useSelector } from "react-redux";
+import { IRootState } from "@/store";
 
 const TechnicalSkills = () => {
   const refSkill = useRef<RefObject>(null);
+  const userData = useSelector((root: IRootState) => root.user);
 
   return (
     <div className="space-y-2 relative">
-      <button
-        type="button"
-        className="absolute right-0 top-0 p-1"
-        onClick={() => refSkill.current?.showDialog()}
-      >
-        <AddIcon className="text-[12px] fill-gray-400" />
-      </button>
+      {userData && (
+        <button
+          type="button"
+          className="absolute right-0 top-0 p-1"
+          onClick={() => refSkill.current?.showDialog()}
+        >
+          <AddIcon className="text-[12px] fill-gray-400" />
+        </button>
+      )}
       <h2 className="text-gray-500 font-bold text-sm">Habilidades Técnicas</h2>
       <div className="flex space-x-1 flex-wrap items-center gap-2">
         <CustomChip label="Data Structure" />
@@ -37,16 +42,19 @@ const TechnicalSkills = () => {
   );
 };
 const SoftSkills = () => {
+  const userData = useSelector((root: IRootState) => root.user);
   const refSkill = useRef<RefObject>(null);
   return (
     <div className="space-y-2 relative">
-      <button
-        type="button"
-        className="absolute right-0 top-0 p-1"
-        onClick={() => refSkill.current?.showDialog()}
-      >
-        <AddIcon className="text-[12px] fill-gray-400" />
-      </button>
+      {userData && (
+        <button
+          type="button"
+          className="absolute right-0 top-0 p-1"
+          onClick={() => refSkill.current?.showDialog()}
+        >
+          <AddIcon className="text-[12px] fill-gray-400" />
+        </button>
+      )}
       <h2 className="text-gray-500 font-bold text-sm">Habilidades Blandas</h2>
 
       <div className="flex space-x-1 flex-wrap items-center gap-2">

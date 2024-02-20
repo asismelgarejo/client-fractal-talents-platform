@@ -1,12 +1,15 @@
 import CardOne from "@/components/common/Cards/CardOne";
 import { RefObject } from "@/components/common/CustomDialog";
 import DialogAddEducation from "@/components/dialogs/DialogAddEducation";
+import { IRootState } from "@/store";
 import { AddIcon, EditIcon } from "@/utils/icons";
 import Image from "next/image";
 import React, { useRef } from "react";
+import { useSelector } from "react-redux";
 
 const EducationCard = () => {
   const refEducation = useRef<RefObject>(null);
+  const userData = useSelector((root: IRootState) => root.user);
 
   return (
     <>
@@ -33,19 +36,21 @@ const EducationCard = () => {
               <span>2015 - 2021</span>
             </p>
           </div>
-          <div
-            className="flex items-center ml-auto"
-            style={{ marginLeft: "auto" }}
-          >
-            <button
-              onClick={() => {
-                refEducation.current?.showDialog();
-              }}
-              type="button"
+          {userData && (
+            <div
+              className="flex items-center ml-auto"
+              style={{ marginLeft: "auto" }}
             >
-              <EditIcon className="fill-gray-500 text-2xl" />
-            </button>
-          </div>
+              <button
+                onClick={() => {
+                  refEducation.current?.showDialog();
+                }}
+                type="button"
+              >
+                <EditIcon className="fill-gray-500 text-2xl" />
+              </button>
+            </div>
+          )}
         </div>
       </CardOne>
       <DialogAddEducation
