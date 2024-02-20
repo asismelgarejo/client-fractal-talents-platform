@@ -21,6 +21,11 @@ const ENGLISH_LEVEL = [
   { id: 2, label: "Intermedio" },
   { id: 3, label: "Avanzado" },
 ];
+const LANGUAGES = [
+  { id: 1, label: "Inglés" },
+  { id: 2, label: "Fraces" },
+  { id: 3, label: "Español" },
+];
 const FAVORITES = [
   { id: 1, label: "Mis favaritos" },
   { id: 2, label: "Backups" },
@@ -29,6 +34,7 @@ const FAVORITES = [
 const Menus = () => {
   const [skills, setSkills] = useState<MenuItemProps[]>([]);
   const [englishLevel, setEnglishLevel] = useState<MenuItemProps | null>(null);
+  const [languages, setLanguage] = useState<MenuItemProps | null>(null);
   const [favorite, setFavorite] = useState<MenuItemProps | null>(null);
 
   return (
@@ -41,6 +47,14 @@ const Menus = () => {
         value={skills}
         label={"Habilidades"}
         items={SKILLS}
+      />
+      <FloatingMenu
+        onChange={(item) => {
+          setLanguage(item as MenuItemProps);
+        }}
+        label="Idioma"
+        items={LANGUAGES}
+        value={languages}
       />
       <FloatingMenu
         onChange={(item) => {
