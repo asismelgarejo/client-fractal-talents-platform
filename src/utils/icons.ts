@@ -21,6 +21,7 @@ import { default as DeleteIcon } from "@/assets/delete.svg";
 import { default as ArrowOutlineIcon } from "@/assets/arrow_outline.svg";
 import { default as CancelIcon } from "@/assets/cancel.svg";
 import { default as FallbackAvatarIcon } from "@/assets/fallback_avatar.svg";
+import { default as InfoIcon } from "@/assets/info.svg";
 
 export {
   EyesIcon,
@@ -46,4 +47,5 @@ export {
   ArrowOutlineIcon,
   CancelIcon,
   FallbackAvatarIcon,
+  InfoIcon,
 };

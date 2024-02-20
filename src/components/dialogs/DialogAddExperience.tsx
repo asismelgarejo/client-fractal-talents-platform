@@ -10,9 +10,10 @@ import { DeleteIcon } from "@/utils/icons";
 type DialogAddExperienceProps = {
   closeModal(): void;
   editing: boolean;
+  deleteRecord?(): void;
 };
 const DialogAddExperience = forwardRef<RefObject, DialogAddExperienceProps>(
-  ({ closeModal, editing }, ref) => {
+  ({ closeModal, deleteRecord, editing }, ref) => {
     const [checked, setChecked] = useState(false);
     return (
       <CustomDialog ref={ref}>
@@ -29,7 +30,11 @@ const DialogAddExperience = forwardRef<RefObject, DialogAddExperienceProps>(
                 : "La vida esta llena de cambios. Edita tu experiencia laboral."}
             </p>
             {editing && (
-              <button type="button" className="absolute top-[0] right-0">
+              <button
+                type="button"
+                className="absolute top-[0] right-0"
+                onClick={() => deleteRecord && deleteRecord()}
+              >
                 <DeleteIcon className="fill-error-500 text-[18px]" />
               </button>
             )}

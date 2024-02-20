@@ -1,6 +1,7 @@
 import CardOne from "@/components/common/Cards/CardOne";
 import { RefObject } from "@/components/common/CustomDialog";
 import DialogAddExperience from "@/components/dialogs/DialogAddExperience";
+import DialogConfirmation from "@/components/dialogs/DialogConfirmation";
 import { IRootState } from "@/store";
 import { AddIcon, EditIcon } from "@/utils/icons";
 import Image from "next/image";
@@ -9,6 +10,7 @@ import { useSelector } from "react-redux";
 
 const ExperienceCard = () => {
   const refExperience = useRef<RefObject>(null);
+  const refConfirmation = useRef<RefObject>(null);
   const userData = useSelector((root: IRootState) => root.user);
 
   return (
@@ -55,8 +57,21 @@ const ExperienceCard = () => {
       <DialogAddExperience
         editing
         ref={refExperience}
+        deleteRecord={() => refConfirmation.current?.showDialog()}
         closeModal={() => {
-          refExperience.current && refExperience.current.showDialog();
+          refExperience.current?.showDialog();
+        }}
+      />
+      <DialogConfirmation
+        ref={refConfirmation}
+        type="warning"
+        description="¿Está seguro de eliminar la experiencia?"
+        cancel={() => {
+          refConfirmation.current?.showDialog();
+        }}
+        confirm={() => {
+          refConfirmation.current?.showDialog();
+          refExperience.current?.showDialog();
         }}
       />
     </>

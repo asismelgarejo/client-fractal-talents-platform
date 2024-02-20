@@ -1,8 +1,15 @@
 export const colors = {
   // ...defaultColors,
-  primary: { "500": "#0B85C3", "100": "#F0F9FF",  },
+  primary: { "500": "#0B85C3", "100": "#F0F9FF" },
   tertiary: { "500": "#009688" },
   secondary: { "500": "#C11574", "200": "#FDF2FA" },
+  orange: {
+    "100": "#fff7ed",
+    "200": "#ffedd5",
+    "300": "#fed7aa",
+    "400": "#fdba74",
+    "500": "#f97316",
+  },
   error: {
     "100": "red",
     "200": "red",
