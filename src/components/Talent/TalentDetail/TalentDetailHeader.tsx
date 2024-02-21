@@ -105,11 +105,11 @@ const TalentSubheader: React.FC<TalentSubheaderProps> = ({
   const refMoney = useRef<RefObject>(null);
 
   return (
-    <div>
+    <>
       <div
         className={clsx(
           "flex space-x-2 text-sm items-center text-gray-500",
-          styles.TalentSubheader
+          styles.TalentSubheader2
         )}
       >
         <span className="flex space-x-1">{profile}</span>
@@ -143,13 +143,13 @@ const TalentSubheader: React.FC<TalentSubheaderProps> = ({
           refMoney.current && refMoney.current.showDialog();
         }}
       />
-    </div>
+    </>
   );
 };
 
 const TalentRating: React.FC<{}> = () => {
   return (
-    <div className={clsx("p-4 space-y-1", styles.TalentRating)}>
+    <div className={clsx("space-y-1", styles.TalentRating)}>
       <div className="flex space-x-2 text-gray-500 items-center">
         <CustomRating />
         <span className="flex space-x-1 items-center text-sm">2 feedbacks</span>
@@ -193,7 +193,12 @@ const TalentInputs: React.FC<{}> = () => {
 const TalentSocialNetworks: React.FC<{}> = () => {
   const refSocialNet = useRef<RefObject>(null);
   return (
-    <div className={clsx("space-x-2 mt-auto h-fit flex justify-end", styles.TalentSocialNetworks)}>
+    <div
+      className={clsx(
+        "space-x-2 mt-auto h-fit flex justify-end",
+        styles.TalentSocialNetworks
+      )}
+    >
       <button
         type="button"
         className=" h-fit"
@@ -212,6 +217,12 @@ const TalentSocialNetworks: React.FC<{}> = () => {
       >
         <LinkedInIcon className="text-[24px] fill-gray-400" />
       </button>
+      <DialogSocialNetworks
+        ref={refSocialNet}
+        closeModal={() => {
+          refSocialNet.current && refSocialNet.current.showDialog();
+        }}
+      />
     </div>
   );
 };
@@ -226,7 +237,7 @@ const TalentDetailHeader = () => {
         <TalentProfile profileImage={talentData.profileImage} />
         <TalentHeader title={`${talentData.name} ${talentData.lastName}`} />
         <TalentSubheader
-          cityName={talentData.city.name}
+          cityName={talentData.country.name}
           countryName={talentData.city.name}
           profile={talentData.profile}
           salaryMaximum={talentData.salary.maximum}

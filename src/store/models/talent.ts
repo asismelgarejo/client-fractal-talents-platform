@@ -42,7 +42,7 @@ const INITIAL_STATE: Talent = {
       company: {
         id: 2,
         name: "Freelance",
-        logoUrl: "",
+        logoUrl: "/asdasdasd",
       },
     },
     {
@@ -51,7 +51,7 @@ const INITIAL_STATE: Talent = {
       company: {
         id: 2,
         name: "Jackson",
-        logoUrl: "",
+        logoUrl: "/asdasdasd",
       },
     },
   ],

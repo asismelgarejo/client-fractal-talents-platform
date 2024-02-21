@@ -21,6 +21,7 @@ const TalentDetail = () => {
     >
       <div className={clsx(styles.TalentDetail, "space-y-4")}>
         <TalentDetailHeader />
+        <br />
         <TalentDetailCertificates />
         <TalentDetailSkills />
         <TalentDetailDescription />
