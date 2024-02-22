@@ -5,6 +5,8 @@ import CustomButton from "../common/CustomButton";
 import CardTwo from "../common/Cards/CardTwo";
 import { UploadIcon } from "@/utils/icons";
 import CustomInput from "../common/CustomInput";
+import SoftSkillForm from "../FormComponents/SoftSkillForm";
+import CreationTitle from "../common/CreationTitle";
 
 type DialogAddSoftSkillProps = {
   closeModal(): void;
@@ -18,21 +20,15 @@ const DialogAddSoftSkill = forwardRef<RefObject, DialogAddSoftSkillProps>(
         <input style={{ display: "none" }} ref={intpuRef} type="file" />
 
         <CardTwo className="p-[24px] min-w-[400px] space-y-5 rounded-xl">
-          <div className="text-start">
-            <h2 className="text-lg text-black font-bold">
-              Agrega una nueva habilidad blanda
-            </h2>
-            <p className="text-gray-500 text-sm font-light">
-              Agrega tu nueva experiencia blanda.
-            </p>
-          </div>
-          <div className="space-y-2">
-            <CustomInput
-              label="Habilidad blanda"
-              placeholder="Nombre de la habilidad"
-              className="rounded-md"
-            />
-          </div>
+          <CreationTitle
+            headerTexts={{
+              create: "Agrega una nueva habilidad blanda",
+            }}
+            subheaderTexts={{
+              create: "Agrega tu nueva experiencia blanda.",
+            }}
+          />
+          <SoftSkillForm />
           <div className="flex grow space-x-5">
             <CustomButton
               className="w-full"

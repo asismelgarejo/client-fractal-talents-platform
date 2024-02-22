@@ -3,13 +3,11 @@ import React, { forwardRef } from "react";
 import CustomDialog, { RefObject } from "@/components/common/CustomDialog";
 import CustomButton from "../common/CustomButton";
 import CardTwo from "../common/Cards/CardTwo";
-import CustomSelect, { MenuItemProps } from "../common/CustomSelect";
-import CustomRating from "../common/CustomRating";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { IRootState } from "@/store";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { LanguageData } from "@/types/Talent";
-import { DeleteIcon } from "@/utils/icons";
+import LanguageForm from "../FormComponents/LanguageForm";
+import CreationTitle from "../common/CreationTitle";
 
 type DialogLanguageProps = {
   closeModal(): void;
@@ -19,8 +17,6 @@ type DialogLanguageProps = {
 const DialogLanguage = forwardRef<RefObject, DialogLanguageProps>(
   ({ closeModal, editing }, ref) => {
     const dispatch = useDispatch();
-
-    const language = useSelector((root: IRootState) => root.talent);
 
     const { control, handleSubmit, getValues, setValue } =
       useForm<LanguageData>({
@@ -45,73 +41,18 @@ const DialogLanguage = forwardRef<RefObject, DialogLanguageProps>(
       <CustomDialog ref={ref}>
         <form action="" onSubmit={handleSubmit(onSubmit)}>
           <CardTwo className="p-[24px] min-w-[400px] space-y-5 rounded-xl">
-            <div className="text-start relative">
-              <h2 className="text-lg text-black font-bold">
-                {!editing
-                  ? "Agrega un nuevo idioma"
-                  : "Edita tu habilidad en el idioma"}
-              </h2>
-              <p className="text-gray-500 text-sm font-light">
-                {!editing
-                  ? "Agrega un nuevo idioma aprendido."
-                  : "Edita tu habilidad en el idioma"}
-              </p>
-              {editing && (
-                <button type="button" className="absolute top-[0] right-0">
-                  <DeleteIcon className="fill-error-500 text-[18px]" />
-                </button>
-              )}
-            </div>
-            <div className="space-y-3">
-              <Controller
-                name="language"
-                control={control}
-                rules={{ required: "username is required" }}
-                render={({ field, fieldState }) => (
-                  <CustomSelect
-                    label="Idioma"
-                    value={field.value.name}
-                    className="w-full"
-                    placeholder="Nombre  del idioma"
-                    variant="gray_2"
-                    change={(option) => {
-                      setValue("language", option);
-                    }}
-                    options={[
-                      {
-                        id: 1,
-                        name: "Inglés",
-                      },
-                      {
-                        id: 2,
-                        name: "Español",
-                      },
-                    ]}
-                  />
-                )}
-              />
-              <Controller
-                name="level"
-                control={control}
-                rules={{ required: "username is required" }}
-                render={({ field, fieldState }) => (
-                  <CustomSelect
-                    label="Nivel"
-                    value={field.value.name}
-                    placeholder="Nivel del idioma"
-                    className="w-full"
-                    variant="gray_2"
-                    change={(option) => {
-                      setValue("language", option);
-                    }}
-                    options={[]}
-                  />
-                )}
-              />
-
-              <CustomRating />
-            </div>
-
+            <CreationTitle
+              editing={editing}
+              headerTexts={{
+                create: "Agrega un nuevo idioma",
+                edit: "Edita tu habilidad en el idioma",
+              }}
+              subheaderTexts={{
+                create: "Agrega un nuevo idioma aprendido.",
+                edit: "Edita tu habilidad en el idioma",
+              }}
+            />
+            <LanguageForm />
             <div className="flex grow space-x-5">
               <CustomButton
                 className="w-full"
